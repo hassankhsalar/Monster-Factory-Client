@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "title": "The Science Behind Muscle Recovery",
+    "writer": "Noah Anderson",
+    "image": "https://i.ibb.co.com/x241M3t/Science-Behind-Protein-Wellversed-480x480.png",
+    "details": "Understanding how muscles recover after workouts is essential to improving performance. This article explores the science behind recovery and how you can optimize it.",
+    "date": "2024-12-28"
+  },
+  {
+    "id": "2",
+    "title": "Strength Training Tips for Beginners",
+    "writer": "Liam Carter",
+    "image": "https://i.ibb.co.com/p13zq90/blog-3.jpg",
+    "details": "Starting with strength training can be intimidating, but it doesn’t have to be. This article provides a step-by-step guide for beginners to build strength and confidence in the gym.",
+    "date": "2025-01-08"
+  },
+  {
+    "id": "3",
+    "title": "5 High-Intensity Workouts You Can Do at Home",
+    "writer": "Emily Davis",
+    "image": "https://i.ibb.co.com/P4m49SY/class-1.jpg",
+    "details": "No gym? No problem! Discover five high-intensity interval training (HIIT) workouts that you can perform at home to burn calories and stay fit.",
+    "date": "2025-01-05"
+  },
+  {
+    "id": "4",
+    "title": "Why Nutrition is Key to Fitness Success",
+    "writer": "Michael Hughes",
+    "image": "https://i.ibb.co.com/n6hc0d1/salad-bg.jpg",
+    "details": "Learn how proper nutrition can enhance your fitness goals. This post breaks down the essential nutrients you need and their role in improving performance and recovery.",
+    "date": "2025-01-03"
+  },
+  {
+    "id": "5",
+    "title": "Zumba: A Fun Way to Stay Active",
+    "writer": "Olivia Johnson",
+    "image": "https://i.ibb.co.com/VC4GPRM/images-q-tbn-ANd9-Gc-S-HEHpmdwvx-AO3x4o-VEW8-Pr4-Dw-P270e-ILSzg-s.jpg",
+    "details": "Ditch the workout and join the party! This article dives into the world of Zumba and how it combines dance and fitness for a fun, effective exercise experience.",
+    "date": "2025-01-01"
+  },
+  {
+    "id": "6",
+    "title": "10 Tips for Staying Motivated in Your Fitness Journey",
+    "writer": "Noah Anderson",
+    "image": "https://i.ibb.co.com/ZGQ8Hfy/boxing-focus-mitts-drills.jpg",
+    "details": "Staying consistent can be tough, but these 10 tips will help you stay motivated and reach your fitness goals, no matter the challenges.",
+    "date": "2024-12-28"
+  },
+  {
+    "id": "7",
+    "title": "The Benefits of Yoga for Mental Health",
+    "writer": "Sophia Bennett",
+    "image": "https://i.ibb.co.com/235mj8N/class-3.jpg",
+    "details": "Yoga has proven to be an effective way to reduce stress, enhance mindfulness, and promote overall mental well-being. Explore how incorporating yoga into your daily routine can positively impact your mental health.",
+    "date": "2025-01-10"
+  }
+]

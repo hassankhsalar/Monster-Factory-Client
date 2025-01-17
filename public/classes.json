@@ -1,0 +1,39 @@
+[
+    {
+      "_id": "class1",
+      "title": "Yoga for Beginners",
+      "description": "A calming class perfect for those just starting out with yoga.",
+      "totalBookings": 150
+    },
+    {
+      "_id": "class2",
+      "title": "High-Intensity Interval Training",
+      "description": "Push your limits with short bursts of intense exercise.",
+      "totalBookings": 220
+    },
+    {
+      "_id": "class3",
+      "title": "Strength Training 101",
+      "description": "Learn the fundamentals of strength training.",
+      "totalBookings": 180
+    },
+    {
+      "_id": "class4",
+      "title": "Pilates Core Workout",
+      "description": "A class focused on strengthening your core and improving posture.",
+      "totalBookings": 140
+    },
+    {
+      "_id": "class5",
+      "title": "Zumba Dance Party",
+      "description": "Dance your way to fitness with energetic Zumba moves.",
+      "totalBookings": 250
+    },
+    {
+      "_id": "class6",
+      "title": "Spin Cycle",
+      "description": "An adrenaline-pumping indoor cycling class.",
+      "totalBookings": 200
+    }
+  ]
+  

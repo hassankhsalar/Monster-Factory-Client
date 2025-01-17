@@ -1,0 +1,39 @@
+[
+    {
+      "id": "1",
+      "categoryName": "Strength Training",
+      "image": "https://i.ibb.co.com/P4m49SY/class-1.jpg",
+      "description": "Build muscle and improve overall strength with exercises like weightlifting and kettlebell workouts."
+    },
+    {
+      "id": "2",
+      "categoryName": "Cardio and Endurance",
+      "image": "https://i.ibb.co.com/MMCjdgj/class-2.jpg",
+      "description": "Boost cardiovascular fitness and stamina with spin classes, HIIT, and Zumba."
+    },
+    {
+      "id": "3",
+      "categoryName": "Yoga and Flexibility",
+      "image": "https://i.ibb.co.com/235mj8N/class-3.jpg",
+      "description": "Enhance flexibility and balance while calming your mind through yoga and stretching sessions."
+    },
+    {
+      "id": "4",
+      "categoryName": "Functional Training",
+      "image": "https://i.ibb.co.com/k54CQNW/class-4.jpg",
+      "description": "Improve everyday movements and core strength with TRX, circuit training, and boot camps."
+    },
+    {
+      "id": "5",
+      "categoryName": "Martial Arts and Self-Defense",
+      "image": "https://i.ibb.co.com/ZGQ8Hfy/boxing-focus-mitts-drills.jpg",
+      "description": "Combine fitness with self-defense skills through kickboxing, Muay Thai, and Brazilian Jiu-Jitsu."
+    },
+    {
+      "id": "6",
+      "categoryName": "Dance and Rhythm-Based",
+      "image": "https://i.ibb.co.com/VC4GPRM/images-q-tbn-ANd9-Gc-S-HEHpmdwvx-AO3x4o-VEW8-Pr4-Dw-P270e-ILSzg-s.jpg",
+      "description": "Get fit while having fun with rhythm-based workouts like Zumba and hip-hop dance fitness."
+    }
+  ]
+  

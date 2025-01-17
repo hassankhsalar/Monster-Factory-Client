@@ -1,0 +1,47 @@
+[
+    {
+      "fullName": "Ronnie Coleman",
+      "email": "ronnie.coleman@example.com",
+      "age": 58,
+      "imageURL": "https://i.ibb.co.com/B3H6fcT/mh-3-23-coleman-1648059910.png",
+      "skills": ["Bodybuilding", "Strength Training", "Nutrition Guidance"],
+      "availableDays": ["Mon", "Wed", "Fri"],
+      "availableHours": "10:00 AM - 6:00 PM",
+      "experience": "23",
+      "biography": "Ronnie Coleman, an 8-time Mr. Olympia winner, has a wealth of experience in bodybuilding and strength training. He is passionate about helping individuals unlock their potential through disciplined training and proper nutrition."
+    },
+    {
+      "fullName": "Dorian Yates",
+      "email": "dorian.yates@example.com",
+      "age": 61,
+      "imageURL": "https://i.ibb.co.com/jZgdRRk/Dorian-Yates-The-Original-Mass-Monster-Keep-Fit-Kingdom-842x472.jpg",
+      "skills": ["Bodybuilding", "High-Intensity Training", "Motivational Coaching"],
+      "availableDays": ["Tue", "Thu", "Sat"],
+      "availableHours": "8:00 AM - 4:00 PM",
+      "experience": "26",
+      "biography": "Dorian Yates, a 6-time Mr. Olympia champion, is known for his innovative high-intensity training techniques. He aims to inspire others to achieve their fitness goals through focus and dedication."
+    },
+    {
+      "fullName": "Jay Cutler",
+      "email": "jay.cutler@example.com",
+      "age": 50,
+      "imageURL": "https://i.ibb.co.com/S6ggcsB/jay-cutler-olympia-trainingc.jpg",
+      "skills": ["Bodybuilding", "Muscle Building", "Fitness Coaching"],
+      "availableDays": ["Mon", "Wed", "Fri"],
+      "availableHours": "9:00 AM - 5:00 PM",
+      "experience": "18",
+      "biography": "Jay Cutler, a 4-time Mr. Olympia winner, specializes in muscle-building techniques and fitness coaching. His goal is to empower individuals to lead healthier and more active lifestyles."
+    },
+    {
+      "fullName": "Chris Bumstead",
+      "email": "chris.bumstead@example.com",
+      "age": 28,
+      "imageURL": "https://i.ibb.co.com/37Pp4Mb/Chris-Bumstead-Shirtless-Hands-On-Hip.jpg",
+      "skills": ["Classic Physique Training", "Nutrition Planning", "Endurance Training"],
+      "availableDays": ["Mon", "Tue", "Thu", "Sat"],
+      "availableHours": "7:00 AM - 3:00 PM",
+      "experience": "9",
+      "biography": "Chris Bumstead, a 4-time Classic Physique Mr. Olympia winner, is renowned for his expertise in physique training and nutrition. He is dedicated to helping individuals sculpt their dream bodies through tailored programs."
+    }
+  ]
+  
