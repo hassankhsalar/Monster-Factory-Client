@@ -1,9 +1,18 @@
-import React, { useState } from "react";
-import logo from '/logo.png';
+import React, { useContext, useState } from "react";
+import logo from "/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogout = () =>{
+    logOut()
+    .then(()=>{})
+    .catch(error => console.log(error));
+  }
 
   const toggleDropdown = () => {
     setDropdownOpen((prev) => !prev);
@@ -23,23 +32,61 @@ const Navbar = () => {
         {/* links */}
         <ul className="items-stretch hidden space-x-3 lg:flex">
           <li className="flex">
-            <Link className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600" to='/'>Home</Link>
+            <Link
+              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              to="/"
+            >
+              Home
+            </Link>
           </li>
           <li className="flex">
-            <Link className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600" to='/alltrainers'>All Trainers</Link>
+            <Link
+              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              to="/alltrainers"
+            >
+              All Trainers
+            </Link>
           </li>
           <li className="flex">
-            <Link className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600" to='/classes'>All Classes</Link>
+            <Link
+              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              to="/allclasses"
+            >
+              All Classes
+            </Link>
           </li>
           <li className="flex">
-            <Link className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600" to='/forums'>Community Forums</Link>
+            <Link
+              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              to="/forums"
+            >
+              Community Forums
+            </Link>
           </li>
         </ul>
         <div className="items-center flex-shrink-0 hidden lg:flex">
-          <button className="self-center px-8 py-3 rounded">Sign in</button>
-          <button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">
-            Sign up
-          </button>
+
+        {
+          user ? <> <div className="flex flex-col items-center justify-center">
+          <div className="flex space-x-5">
+            <img alt="" className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-violet-600 dark:ring-offset-gray-100" src={user.photoURL} />
+            <button onClick={handleLogout} type="button" className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100">Logout</button>
+          </div>
+        </div>  </> : <> <li>
+          <Link className="px-8 mr-4 py-3 font-semibold rounded dark:bg-slate-400 dark:text-black" to="/login">
+            Login
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
+            to="/register"
+          >
+            Register
+          </Link>
+        </li> </>
+        }
+
         </div>
         <button className="p-4 lg:hidden" onClick={toggleDropdown}>
           <svg
@@ -62,20 +109,72 @@ const Navbar = () => {
       {/* Dropdown Menu */}
       {isDropdownOpen && (
         <div className="absolute right-0 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg mt-2 lg:hidden">
-            {/* links */}
+          {/* links */}
           <ul className="flex flex-col p-2">
             <li>
-              <Link className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700" to='/'>Home</Link>
+              <Link
+                className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                to="/"
+              >
+                Home
+              </Link>
             </li>
             <li>
-              <Link className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700" to='/alltrainers'>All Trainers</Link>
+              <Link
+                className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                to="/alltrainers"
+              >
+                All Trainers
+              </Link>
             </li>
             <li>
-              <Link className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700" to='/classes'>All Classes</Link>
+              <Link
+                className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                to="/classes"
+              >
+                All Classes
+              </Link>
             </li>
             <li>
-              <Link className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700" to='/forums'>Community Forums</Link>
+              <Link
+                className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                to="/forums"
+              >
+                Community Forums
+              </Link>
             </li>
+
+
+          {
+            user ? <> <li onClick={handleLogout}>
+            <Link
+              className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+              to="/login"
+            >
+              Logout
+            </Link>
+          </li> </> : <> <li>
+            <Link
+              className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+              to="/login"
+            >
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+              to="/register"
+            >
+              Register
+            </Link>
+          </li> </>
+          }
+            
+
+
+
+            
           </ul>
         </div>
       )}

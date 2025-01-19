@@ -1,9 +1,11 @@
 
 import { Helmet } from "react-helmet-async";
 import useTrainerHooks from "../../hooks/useTrainerHooks";
+import { Link } from "react-router-dom";
 
 const AllTrainers = () => {
   const [trainers] = useTrainerHooks();
+  console.log(trainers);
 
   return (
     <div>
@@ -24,14 +26,14 @@ const AllTrainers = () => {
             {trainers.map((trainer) => (
               <div
                 className="space-y-2 rounded-t-lg flex flex-col items-center"
-                key={trainer.id}
+                key={trainer._id}
               >
                 <img
                   alt={trainer.fullName}
-                  className="object-cover h-56 mx-auto mb-1 bg-center rounded-t-lg dark:bg-gray-500"
+                  className="object-cover w-full h-56 mx-auto mb-1 bg-center rounded-t-lg dark:bg-gray-500"
                   src={trainer.imageURL}
                 />
-                <div className="flex flex-col h-56 justify-evenly items-center text-center bg-gray-500 rounded-b-xl text-white">
+                <div className="flex w-full flex-col h-56 justify-evenly items-center text-center bg-gray-500 rounded-b-xl text-white">
                   <h4 className="text-xl font-semibold">{trainer.fullName}</h4>
                   <p className="text-sm dark:text-gray-300">
                     {trainer.skills.join(" - ")}
@@ -46,7 +48,9 @@ const AllTrainers = () => {
                   type="button"
                   className="px-8 py-3 font-semibold rounded dark:bg-accent dark:text-gray-100"
                 >
-                  Know More
+                  <Link to={`/alltrainers/${trainer._id}`}>
+                    Know More
+                  </Link>
                 </button>
               </div>
             ))}

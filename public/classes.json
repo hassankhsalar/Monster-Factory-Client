@@ -1,39 +1,92 @@
 [
-    {
-      "_id": "class1",
-      "title": "Yoga for Beginners",
-      "description": "A calming class perfect for those just starting out with yoga.",
-      "totalBookings": 150
-    },
-    {
-      "_id": "class2",
-      "title": "High-Intensity Interval Training",
-      "description": "Push your limits with short bursts of intense exercise.",
-      "totalBookings": 220
-    },
-    {
-      "_id": "class3",
-      "title": "Strength Training 101",
-      "description": "Learn the fundamentals of strength training.",
-      "totalBookings": 180
-    },
-    {
-      "_id": "class4",
-      "title": "Pilates Core Workout",
-      "description": "A class focused on strengthening your core and improving posture.",
-      "totalBookings": 140
-    },
-    {
-      "_id": "class5",
-      "title": "Zumba Dance Party",
-      "description": "Dance your way to fitness with energetic Zumba moves.",
-      "totalBookings": 250
-    },
-    {
-      "_id": "class6",
-      "title": "Spin Cycle",
-      "description": "An adrenaline-pumping indoor cycling class.",
-      "totalBookings": 200
-    }
-  ]
-  
+  {
+    "id": "1",
+    "name": "Strength Training",
+    "description": "Build muscle strength through weightlifting and resistance exercises.",
+    "totalBookings": 144
+  },
+  {
+    "id": "2",
+    "name": "Cardio and Endurance",
+    "description": "Improve cardiovascular health with high-intensity cardio sessions.",
+    "trainerIds": ["104", "105", "106"]
+  },
+  {
+    "id": "3",
+    "name": "Yoga and Flexibility",
+    "description": "Enhance flexibility, balance, and mindfulness with yoga classes.",
+    "totalBookings": 75
+  },
+  {
+    "id": "4",
+    "name": "Pilates",
+    "description": "Strengthen your core and improve posture with Pilates workouts.",
+    "totalBookings": 15
+  },
+  {
+    "id": "5",
+    "name": "Functional Training",
+    "description": "Exercises mimicking real-life movements to improve mobility.",
+    "totalBookings": 37
+  },
+  {
+    "id": "6",
+    "name": "Nutrition and Weight Management",
+    "description": "Achieve your weight goals with personalized nutrition guidance.",
+    "totalBookings": 93
+  },
+  {
+    "id": "7",
+    "name": "Sports-Specific Training",
+    "description": "Tailored training to boost performance in your favorite sport.",
+    "totalBookings": 55
+  },
+  {
+    "id": "8",
+    "name": "Rehabilitation and Recovery",
+    "description": "Recover from injuries with gentle, low-impact exercises.",
+    "totalBookings": 18
+  },
+  {
+    "id": "9",
+    "name": "Group Fitness",
+    "description": "Enjoy high-energy group classes like Zumba or aerobics.",
+    "totalBookings": 33
+  },
+  {
+    "id": "10",
+    "name": "Martial Arts and Self-Defense",
+    "description": "Learn martial arts and self-defense techniques.",
+    "totalBookings": 82
+  },
+  {
+    "id": "11",
+    "name": "Bodyweight Training",
+    "description": "Engage in bodyweight exercises for strength and endurance.",
+    "totalBookings": 276
+  },
+  {
+    "id": "12",
+    "name": "Strength for Seniors",
+    "description": "Maintain mobility with low-impact strength exercises for seniors.",
+    "totalBookings": 112
+  },
+  {
+    "id": "13",
+    "name": "Mindfulness and Meditation",
+    "description": "Focus on mental well-being with meditation sessions.",
+    "totalBookings": 49
+  },
+  {
+    "id": "14",
+    "name": "Dance Fitness",
+    "description": "Have fun and stay fit with energetic dance-based workouts.",
+    "totalBookings": 91
+  },
+  {
+    "id": "15",
+    "name": "Outdoor Fitness Adventures",
+    "description": "Enjoy fitness sessions in natural settings like hiking or trail running.",
+    "totalBookings": 12
+  }
+]
