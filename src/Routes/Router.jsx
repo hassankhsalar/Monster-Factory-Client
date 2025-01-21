@@ -15,6 +15,8 @@ import Payment from "../Pages/payment/Payment";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import BookedTrainerCart from "../Pages/DashBoard.jsx/BookedTrainerCart";
 import DashboardAllTrainer from "../Pages/DashBoard.jsx/DashboardAllTrainer";
+import AppliedTrainer from "../Pages/DashBoard.jsx/admin/AppliedTrainer";
+import AppliedTrainerDetails from "../Pages/DashBoard.jsx/admin/AppliedTrainerDetails";
 
 
 export const router = createBrowserRouter([
@@ -78,6 +80,15 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/alltrainer',
         element: <DashboardAllTrainer></DashboardAllTrainer>
+      },
+      {
+        path: '/dashboard/appliedtrainer',
+        element: <AppliedTrainer></AppliedTrainer>
+      },
+      
+      {
+        path: '/dashboard/appliedtrainerdetails/:id',
+        element: <AppliedTrainerDetails></AppliedTrainerDetails>
       },
       //trainer routes
     ]

@@ -90,7 +90,7 @@ const DashBoard = () => {
                 <li className="">
                   <Link
                     className="flex gap-2 text-sm px-3"
-                    to="/dashboard/bookedtrainercart"
+                    to="/dashboard/appliedtrainer"
                   >
                     <FaShoppingCart className="text-xl"></FaShoppingCart>{" "}
                     Applied Trainer
