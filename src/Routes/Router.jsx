@@ -10,6 +10,10 @@ import PrivateRouter from "./PrivateRouter";
 import BeATrainer from "../Pages/Trainer/BeATrainer";
 import TrainerDetails from "../Pages/AllTrainers/TrainerDetails";
 import AllClasses from "../Pages/Allclasses/AllClasses";
+import BookedTrainer from "../Pages/AllTrainers/BookedTrainer";
+import Payment from "../Pages/payment/Payment";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import BookedTrainerCart from "../Pages/DashBoard.jsx/BookedTrainerCart";
 
 
 export const router = createBrowserRouter([
@@ -49,7 +53,26 @@ export const router = createBrowserRouter([
         path: "/alltrainers/:id", 
         element: <TrainerDetails></TrainerDetails>,
       },
+      
+      {
+        path: "/bookedtrainer", 
+        element: <BookedTrainer></BookedTrainer>,
+      },
+      {
+        path: "/payment", 
+        element: <Payment></Payment>,
+      },
     ],
+  },
+  {
+    path: '/dashboard',
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: '/dashboard/bookedtrainercart',
+        element: <BookedTrainerCart></BookedTrainerCart>
+      },
+    ]
   },
   {
     path: "*",

@@ -3,6 +3,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../Components/Shared/SocialLogin";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -14,6 +15,7 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
+  console.log(from);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,7 +56,7 @@ const Login = () => {
         icon: "success",
         draggable: true,
       });
-      navigate(from, {replace: true });
+      navigate(from, { replace: true });
     }
   };
 
@@ -123,6 +125,12 @@ const Login = () => {
           {successMessage && (
             <p className="text-green-600 mt-4 text-lg">{successMessage}</p>
           )}
+          <div className="flex items-center my-4">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <span className="px-4 text-gray-500">OR</span>
+            <div className="flex-grow border-t border-gray-300"></div>
+          </div>
+          <SocialLogin></SocialLogin>
         </div>
         <img
           src="https://i.ibb.co/37Pp4Mb/Chris-Bumstead-Shirtless-Hands-On-Hip.jpg"

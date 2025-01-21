@@ -3,6 +3,8 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../Components/Shared/SocialLogin";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +17,7 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
 
   const { createuser, updateUserProfile } = useContext(AuthContext);
 
@@ -59,18 +62,29 @@ const Register = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         updateUserProfile(formData.name, formData.photoURL)
-        .then(()=> {
-          console.log('user profile info updated');
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your profile has been updated",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          navigate('/')
-        })
-        .catch(error=> console.log(error))
+          .then(() => {
+            const userInfo = {
+              name: formData.name,
+              email: formData.email,
+              imageURL: formData.photoURL,
+              role: "member",
+            };
+            //create user entry in the database
+            axiosPublic.post("/users", userInfo).then((res) => {
+              if (res.data.insertedId) {
+                console.log("user profile info updated");
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Your profile has been updated",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
+          })
+          .catch((error) => console.log(error));
       });
 
       setSuccessMessage("Registration successful!");
@@ -208,6 +222,13 @@ const Register = () => {
           {successMessage && (
             <p className="text-green-600 mt-4 text-lg">{successMessage}</p>
           )}
+
+          <div className="flex items-center my-4">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <span className="px-4 text-gray-500">OR</span>
+            <div className="flex-grow border-t border-gray-300"></div>
+          </div>
+          <SocialLogin></SocialLogin>
         </div>
         <img
           src="https://i.ibb.co/37Pp4Mb/Chris-Bumstead-Shirtless-Hands-On-Hip.jpg"

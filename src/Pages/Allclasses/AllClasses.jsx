@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const AllClasses = () => {
-  const [classes, setClasses] = useState([]); // Ensure it's an empty array initially
-  const [trainers, setTrainers] = useState([]); // Same for trainers
+  const [classes, setClasses] = useState([]);
+  const [trainers, setTrainers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const classesPerPage = 6;
 
@@ -12,12 +12,12 @@ const AllClasses = () => {
     const fetchData = async () => {
       try {
         const [classesRes, trainersRes] = await Promise.all([
-          axios.get("http://localhost:5000/classes"), // Replace with your API endpoint
-          axios.get("http://localhost:5000/trainers"), // Replace with your API endpoint
+          axios.get("http://localhost:5000/classes"),
+          axios.get("http://localhost:5000/trainers"),
         ]);
 
-        setClasses(classesRes.data || []); // Safeguard against undefined data
-        setTrainers(trainersRes.data || []); // Safeguard against undefined data
+        setClasses(classesRes.data || []);
+        setTrainers(trainersRes.data || []);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -26,12 +26,10 @@ const AllClasses = () => {
     fetchData();
   }, []);
 
-  // Calculate the trainers for a specific class
   const getMatchingTrainers = (className) => {
     return trainers.filter((trainer) => trainer.skills.includes(className)).slice(0, 5);
   };
 
-  // Pagination logic
   const totalPages = Math.ceil(classes.length / classesPerPage);
   const displayedClasses = classes.slice(
     (currentPage - 1) * classesPerPage,
@@ -45,13 +43,22 @@ const AllClasses = () => {
         {displayedClasses.length > 0 ? (
           displayedClasses.map((classItem) => (
             <div key={classItem._id} className="bg-white p-4 rounded shadow">
-                <div><img src={classItem.imageURL} alt="" /></div>
-              <h2 className="text-xl font-semibold mb-2">{classItem.name}</h2>
+              <div>
+                <img src={classItem.imageURL} alt="" className="w-full h-40 object-cover rounded" />
+              </div>
+              <h2 className="text-xl font-semibold mb-2">{classItem.title}</h2>
               <p className="text-gray-700 mb-4">{classItem.description}</p>
               <h3 className="font-semibold mb-2">Trainers:</h3>
               <div className="flex items-center space-x-2">
                 {getMatchingTrainers(classItem.name).map((trainer) => (
-                  <Link to={`/alltrainers/${trainer._id}`} key={trainer._id}>
+                  <Link
+                    to={`/alltrainers/${trainer._id}`}
+                    key={trainer._id}
+                    state={{
+                      classTitle: classItem.title, // Passing the class title
+                      trainerId: trainer._id, // Optional additional info
+                    }}
+                  >
                     <img
                       src={trainer.imageURL}
                       alt={trainer.name}
@@ -68,7 +75,6 @@ const AllClasses = () => {
         )}
       </div>
 
-      {/* Pagination */}
       <div className="flex justify-center mt-6">
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <button
