@@ -1,11 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FaFile, FaHome, FaShoppingCart } from "react-icons/fa";
+import useUser from "../../hooks/useUser";
 
 const DashBoard = () => {
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
   console.log(user);
+
+  const isAdmin = true;
+
+  const [users, refetch, isLoading] = useUser();
+  console.log(users);
+
   const handleLogout = () => {
     logOut()
       .then(() => {
@@ -13,12 +20,21 @@ const DashBoard = () => {
       })
       .catch((error) => console.log(error));
   };
+  if (isLoading) {
+    return (
+        <div className="flex items-center justify-center space-x-2">
+        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
+        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
+        <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
+    </div>
+    );
+  }
 
   return (
     <div className="bg-">
       <div className="h-full p-3 space-y-2 w-60 dark:bg-fuchsia-300 dark:text-gray-800">
         <div className="flex items-center p-2 space-x-4">
-          <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
+          <img src={user.photoURL} alt="" className="w-12 h-12 rounded-full" />
           <div>
             <h2 className="text-lg font-semibold">{user?.displayName}</h2>
             <span className="flex items-center space-x-1">
@@ -39,6 +55,7 @@ const DashBoard = () => {
                 <FaHome className="text-xl"></FaHome> Dashboard
               </Link>
             </li>
+            {/* member only */}
             <li className="">
               <Link
                 className="flex gap-2 text-sm px-3"
@@ -55,23 +72,64 @@ const DashBoard = () => {
                 <FaFile className="text-lg" /> My Applications
               </Link>
             </li>
-            <li className="">
-              <Link
-                className="flex gap-2 text-sm px-3"
-                to="/dashboard/bookedtrainercart"
-              >
-                <FaShoppingCart className="text-xl"></FaShoppingCart> Cart
-              </Link>
-            </li>
-            <li className="">
-              <Link
-                className="flex gap-2 text-sm px-3"
-                to="/dashboard/bookedtrainercart"
-              >
-                <FaShoppingCart className="text-xl"></FaShoppingCart> Cart
-              </Link>
-            </li>
+            {/* member end */}
+
+            {/* admin only */}
+            {isAdmin ? (
+              <>
+                {" "}
+                <li className="">
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/alltrainer"
+                  >
+                    <FaShoppingCart className="text-xl"></FaShoppingCart> All
+                    Trainers
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/bookedtrainercart"
+                  >
+                    <FaShoppingCart className="text-xl"></FaShoppingCart>{" "}
+                    Applied Trainer
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/bookedtrainercart"
+                  >
+                    <FaShoppingCart className="text-xl"></FaShoppingCart>{" "}
+                    Newsletter Subscribers
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/bookedtrainercart"
+                  >
+                    <FaShoppingCart className="text-xl"></FaShoppingCart>{" "}
+                    Balance
+                  </Link>
+                </li>
+                <li className="">
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/bookedtrainercart"
+                  >
+                    <FaShoppingCart className="text-xl"></FaShoppingCart> Add
+                    New class
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <> </>
+            )}
+            {/* admin end */}
           </ul>
+
           <ul className="pt-4 pb-2 space-y-1 text-sm">
             <li className="">
               <Link className="flex gap-2 text-sm px-3" to="/">

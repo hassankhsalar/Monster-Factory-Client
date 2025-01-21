@@ -14,6 +14,7 @@ import BookedTrainer from "../Pages/AllTrainers/BookedTrainer";
 import Payment from "../Pages/payment/Payment";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import BookedTrainerCart from "../Pages/DashBoard.jsx/BookedTrainerCart";
+import DashboardAllTrainer from "../Pages/DashBoard.jsx/DashboardAllTrainer";
 
 
 export const router = createBrowserRouter([
@@ -68,10 +69,17 @@ export const router = createBrowserRouter([
     path: '/dashboard',
     element: <DashboardLayout></DashboardLayout>,
     children: [
+      //Member routes
       {
         path: '/dashboard/bookedtrainercart',
         element: <BookedTrainerCart></BookedTrainerCart>
       },
+      // admin routes
+      {
+        path: '/dashboard/alltrainer',
+        element: <DashboardAllTrainer></DashboardAllTrainer>
+      },
+      //trainer routes
     ]
   },
   {
