@@ -17,6 +17,8 @@ import BookedTrainerCart from "../Pages/DashBoard.jsx/BookedTrainerCart";
 import DashboardAllTrainer from "../Pages/DashBoard.jsx/DashboardAllTrainer";
 import AppliedTrainer from "../Pages/DashBoard.jsx/admin/AppliedTrainer";
 import AppliedTrainerDetails from "../Pages/DashBoard.jsx/admin/AppliedTrainerDetails";
+import NewsletterSubscribers from "../Pages/DashBoard.jsx/NewsletterSubscribers";
+import AddNewClass from "../Pages/DashBoard.jsx/AddNewClass";
 
 
 export const router = createBrowserRouter([
@@ -89,6 +91,14 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/appliedtrainerdetails/:id',
         element: <AppliedTrainerDetails></AppliedTrainerDetails>
+      },
+      {
+        path: '/dashboard/allnewsletters',
+        element: <NewsletterSubscribers></NewsletterSubscribers>
+      },
+      {
+        path: '/dashboard/addnewclass',
+        element: <AddNewClass></AddNewClass>
       },
       //trainer routes
     ]

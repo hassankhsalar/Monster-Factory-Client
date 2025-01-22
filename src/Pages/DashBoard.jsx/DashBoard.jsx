@@ -99,7 +99,7 @@ const DashBoard = () => {
                 <li className="">
                   <Link
                     className="flex gap-2 text-sm px-3"
-                    to="/dashboard/bookedtrainercart"
+                    to="/dashboard/allnewsletters"
                   >
                     <FaShoppingCart className="text-xl"></FaShoppingCart>{" "}
                     Newsletter Subscribers
@@ -117,7 +117,7 @@ const DashBoard = () => {
                 <li className="">
                   <Link
                     className="flex gap-2 text-sm px-3"
-                    to="/dashboard/bookedtrainercart"
+                    to="/dashboard/addnewclass"
                   >
                     <FaShoppingCart className="text-xl"></FaShoppingCart> Add
                     New class

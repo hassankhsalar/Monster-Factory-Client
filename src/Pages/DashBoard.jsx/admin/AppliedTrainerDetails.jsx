@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AppliedTrainerDetails = () => {
   const { id } = useParams(); // Extract _id from URL parameters
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
   const [trainer, setTrainer] = useState(null); // State to store trainer data
   const [loading, setLoading] = useState(true); // Loading state
+  const [showModal, setShowModal] = useState(false); // Modal state
+  const [feedback, setFeedback] = useState(""); // Feedback for rejection
 
   useEffect(() => {
     const fetchTrainer = async () => {
@@ -26,6 +29,36 @@ const AppliedTrainerDetails = () => {
     }
   }, [id, axiosSecure]);
 
+  const handleApprove = async () => {
+    try {
+      await axiosSecure.patch(`/trainers/approved/${id}`, {
+        status: "approved",
+        role: "trainer",
+      });
+      alert("Trainer approved successfully!");
+      setTrainer((prev) => ({ ...prev, status: "approved", role: "trainer" }));
+    } catch (error) {
+      console.error("Error approving trainer:", error);
+    }
+  };
+
+  const handleReject = async () => {
+    try {
+      await axiosSecure.patch(`/trainers/rejected/${id}`, {
+        feedback,
+      });
+      alert("Trainer rejected successfully!");
+      setTrainer((prev) => ({
+        ...prev,
+        status: "rejected",
+        rejectionFeedback: feedback,
+      }));
+      setShowModal(false);
+    } catch (error) {
+      console.error("Error rejecting trainer:", error);
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -34,11 +67,22 @@ const AppliedTrainerDetails = () => {
     return <div>No trainer data found.</div>;
   }
 
+  const isApproved = trainer.status === "approved";
+  const isRejected = trainer.status === "rejected";
+
   return (
     <div>
+      {/* Back button */}
+      <button
+        onClick={() => navigate(-1)}
+        className="mb-4 px-4 py-2 bg-gray-300 rounded"
+      >
+        Back
+      </button>
+
       <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
         <img
-          src={trainer.imageURL} // Fallback image
+          src={trainer.imageURL}
           alt={trainer.fullName || "Trainer"}
           className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
         />
@@ -51,23 +95,78 @@ const AppliedTrainerDetails = () => {
               Skills: {trainer.skills?.join(", ")}
             </p>
             <p className="dark:text-gray-800">
-              AvailableDays : {trainer.availableDays?.join(", ")}
+              Available Days: {trainer.availableDays?.join(", ")}
             </p>
             <p className="dark:text-gray-800">
               Experience: {trainer.experience} Years
             </p>
             <p className="dark:text-gray-800">
-              AvailableTime: {trainer.availableTime}
+              Available Time: {trainer.availableTime}
             </p>
           </div>
+
+          {/* Approve button */}
           <button
+            onClick={handleApprove}
             type="button"
-            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50"
+            className={`flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md ${
+              isApproved
+                ? "dark:bg-green-600 dark:text-gray-50 cursor-not-allowed"
+                : "dark:bg-violet-600 dark:text-gray-50"
+            }`}
+            disabled={isApproved || isRejected}
           >
-            Read more
+            {isApproved ? "Approved" : "Approve"}
+          </button>
+
+          {/* Reject button */}
+          <button
+            onClick={() => setShowModal(true)}
+            type="button"
+            className={`flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md ${
+              isRejected
+                ? "dark:bg-red-600 dark:text-gray-50 cursor-not-allowed"
+                : "dark:bg-red-500 dark:text-gray-50"
+            }`}
+            disabled={isApproved || isRejected}
+          >
+            {isRejected ? "Rejected" : "Reject"}
           </button>
         </div>
       </div>
+
+      {/* Modal for rejection feedback */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded shadow-md max-w-md w-full">
+            <h2 className="text-xl font-bold mb-4">Rejection Feedback</h2>
+            <p className="mb-4">
+              Please provide feedback for rejecting {trainer.fullName}.
+            </p>
+            <textarea
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
+              rows="4"
+              className="w-full border rounded p-2"
+              placeholder="Enter feedback..."
+            />
+            <div className="flex justify-end mt-4">
+              <button
+                onClick={() => setShowModal(false)}
+                className="px-4 py-2 bg-gray-300 rounded mr-2"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleReject}
+                className="px-4 py-2 bg-red-600 text-white rounded"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
