@@ -20,6 +20,7 @@ import NewsletterSubscribers from "../Pages/DashBoard.jsx/NewsletterSubscribers"
 import AddNewClass from "../Pages/DashBoard.jsx/AddNewClass";
 import AdminRoute from "./AdminRoute";
 import Payment from "../Pages/DashBoard.jsx/payment/Payment";
+import Balance from "../Pages/DashBoard.jsx/admin/Balance";
 
 
 export const router = createBrowserRouter([
@@ -100,6 +101,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/addnewclass',
         element: <AdminRoute><AddNewClass></AddNewClass></AdminRoute>
+      },
+      {
+        path: '/dashboard/balance',
+        element: <AdminRoute><Balance></Balance></AdminRoute>
       },
       //trainer routes
     ]
