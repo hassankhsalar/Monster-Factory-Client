@@ -2,15 +2,16 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FaFile, FaHome, FaShoppingCart } from "react-icons/fa";
 import useUser from "../../hooks/useUser";
+import useAdmin from "../../hooks/useAdmin";
 
 const DashBoard = () => {
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
   console.log(user);
 
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
-  const [users, refetch, isLoading] = useUser();
+  const [users, , isLoading] = useUser();
   console.log(users);
 
   const handleLogout = () => {

@@ -181,7 +181,7 @@ const BookedTrainer = () => {
           disabled={!selectedPlan}
           className="px-5 py-3 font-bold text-white bg-green-500 rounded disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Proceed to Payment
+          Add to Cart
         </button>
       </div>
     </div>

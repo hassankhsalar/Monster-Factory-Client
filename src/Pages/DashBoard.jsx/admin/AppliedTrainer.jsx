@@ -1,7 +1,5 @@
-import { FaTrash } from "react-icons/fa";
-import Swal from "sweetalert2";
+
 import useTrainer from "../../../hooks/useTrainer";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 
 const AppliedTrainer = () => {

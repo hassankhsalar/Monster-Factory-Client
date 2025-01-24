@@ -11,7 +11,6 @@ import BeATrainer from "../Pages/Trainer/BeATrainer";
 import TrainerDetails from "../Pages/AllTrainers/TrainerDetails";
 import AllClasses from "../Pages/Allclasses/AllClasses";
 import BookedTrainer from "../Pages/AllTrainers/BookedTrainer";
-import Payment from "../Pages/payment/Payment";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import BookedTrainerCart from "../Pages/DashBoard.jsx/BookedTrainerCart";
 import DashboardAllTrainer from "../Pages/DashBoard.jsx/DashboardAllTrainer";
@@ -19,6 +18,8 @@ import AppliedTrainer from "../Pages/DashBoard.jsx/admin/AppliedTrainer";
 import AppliedTrainerDetails from "../Pages/DashBoard.jsx/admin/AppliedTrainerDetails";
 import NewsletterSubscribers from "../Pages/DashBoard.jsx/NewsletterSubscribers";
 import AddNewClass from "../Pages/DashBoard.jsx/AddNewClass";
+import AdminRoute from "./AdminRoute";
+import Payment from "../Pages/DashBoard.jsx/payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/beatrainer",
-        element: <BeATrainer></BeATrainer>
+        element: <PrivateRouter><BeATrainer></BeATrainer></PrivateRouter>,
       },
       {
         path: "/alltrainers/:id", 
@@ -61,44 +62,44 @@ export const router = createBrowserRouter([
       
       {
         path: "/bookedtrainer", 
-        element: <BookedTrainer></BookedTrainer>,
-      },
-      {
-        path: "/payment", 
-        element: <Payment></Payment>,
+        element: <PrivateRouter><BookedTrainer></BookedTrainer></PrivateRouter>,
       },
     ],
   },
   {
     path: '/dashboard',
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
     children: [
       //Member routes
       {
         path: '/dashboard/bookedtrainercart',
-        element: <BookedTrainerCart></BookedTrainerCart>
+        element: <BookedTrainerCart></BookedTrainerCart>,
+      },
+      {
+        path: '/dashboard/payment',
+        element: <Payment></Payment>,
       },
       // admin routes
       {
         path: '/dashboard/alltrainer',
-        element: <DashboardAllTrainer></DashboardAllTrainer>
+        element: <AdminRoute><DashboardAllTrainer></DashboardAllTrainer></AdminRoute>,
       },
       {
         path: '/dashboard/appliedtrainer',
-        element: <AppliedTrainer></AppliedTrainer>
+        element: <AdminRoute><AppliedTrainer></AppliedTrainer></AdminRoute>
       },
       
       {
         path: '/dashboard/appliedtrainerdetails/:id',
-        element: <AppliedTrainerDetails></AppliedTrainerDetails>
+        element: <AdminRoute><AppliedTrainerDetails></AppliedTrainerDetails></AdminRoute>
       },
       {
         path: '/dashboard/allnewsletters',
-        element: <NewsletterSubscribers></NewsletterSubscribers>
+        element: <AdminRoute><NewsletterSubscribers></NewsletterSubscribers></AdminRoute>
       },
       {
         path: '/dashboard/addnewclass',
-        element: <AddNewClass></AddNewClass>
+        element: <AdminRoute><AddNewClass></AddNewClass></AdminRoute>
       },
       //trainer routes
     ]
