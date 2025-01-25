@@ -31,7 +31,7 @@ const TrainerDetails = () => {
     const fetchTrainerDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/trainers/${id}`);
+        const response = await fetch(`https://y-nine-azure.vercel.app/trainers/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch trainer data");
         }

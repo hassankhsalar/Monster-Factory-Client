@@ -57,7 +57,7 @@ const BeATrainer = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/trainers", {
+      const response = await fetch("https://y-nine-azure.vercel.app/trainers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

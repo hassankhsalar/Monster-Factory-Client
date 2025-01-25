@@ -14,8 +14,8 @@ const AllClasses = () => {
     const fetchData = async () => {
       try {
         const [classesRes, trainersRes] = await Promise.all([
-          axios.get("http://localhost:5000/classes"),
-          axios.get("http://localhost:5000/trainers"),
+          axios.get("https://y-nine-azure.vercel.app/classes"),
+          axios.get("https://y-nine-azure.vercel.app/trainers"),
         ]);
 
         setClasses(classesRes.data || []);
@@ -43,7 +43,7 @@ const AllClasses = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/classes/search?name=${searchQuery}`
+        `https://y-nine-azure.vercel.app/classes/search?name=${searchQuery}`
       );
       setClasses(response.data);
     } catch (error) {

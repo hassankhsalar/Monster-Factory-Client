@@ -7,7 +7,7 @@ const ForumPost = () => {
   useEffect(() => {
     // Fetching the forum posts JSON data
     const fetchForumPosts = async () => {
-      const response = await fetch("http://localhost:5000/forums"); // Replace with your actual JSON file path or API endpoint
+      const response = await fetch("https://y-nine-azure.vercel.app/forums"); // Replace with your actual JSON file path or API endpoint
       const data = await response.json();
       setForumPosts(data);
     };

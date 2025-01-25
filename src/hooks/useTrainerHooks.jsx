@@ -6,7 +6,7 @@ const useTrainerHooks = () => {
 
   // Fetch trainer data
   useEffect(() => {
-    fetch("http://localhost:5000/trainers") // Ensure the correct path to your trainer.json file
+    fetch("https://y-nine-azure.vercel.app/trainers") // Ensure the correct path to your trainer.json file
       .then((response) => response.json())
       .then(data => {
         setTrainers(data);

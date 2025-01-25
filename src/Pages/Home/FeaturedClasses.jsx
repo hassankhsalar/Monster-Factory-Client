@@ -6,7 +6,7 @@ const FeaturedClasses = () => {
   useEffect(() => {
     const fetchClasses = async () => {
       try {
-        const response = await fetch("http://localhost:5000/classes"); // Adjust the URL as needed
+        const response = await fetch("https://y-nine-azure.vercel.app/classes"); // Adjust the URL as needed
         const data = await response.json();
 
         // Sort the classes by totalBookings in descending order and take the top 6
