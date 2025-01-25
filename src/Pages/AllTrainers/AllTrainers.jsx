@@ -1,11 +1,10 @@
-
 import { Helmet } from "react-helmet-async";
 import useTrainerHooks from "../../hooks/useTrainerHooks";
 import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const AllTrainers = () => {
   const [trainers] = useTrainerHooks();
-  console.log(trainers);
 
   return (
     <div>
@@ -25,33 +24,42 @@ const AllTrainers = () => {
           <div className="grid w-full grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {trainers.map((trainer) => (
               <div
-                className="space-y-2 rounded-t-lg flex flex-col items-center"
+                className="w-full max-w-xs mx-auto flex flex-col items-center bg-white rounded-lg shadow-md dark:bg-gray-800"
                 key={trainer._id}
               >
                 <img
                   alt={trainer.fullName}
-                  className="object-cover w-full h-56 mx-auto mb-1 bg-center rounded-t-lg dark:bg-gray-500"
+                  className="object-cover w-full h-56 rounded-t-lg"
                   src={trainer.imageURL}
                 />
-                <div className="flex w-full flex-col h-56 justify-evenly items-center text-center bg-gray-500 rounded-b-xl text-white">
+                <div className="flex flex-col justify-between items-center text-center p-4 h-60 bg-gray-500 text-white rounded-b-lg">
                   <h4 className="text-xl font-semibold">{trainer.fullName}</h4>
                   <p className="text-sm dark:text-gray-300">
                     {trainer.skills.join(" - ")}
                   </p>
-                  <p className="text-sm dark:text-gray-300">Years of Experience :  {trainer.experience}</p>
-                  <p>Availibility: {trainer.availableDays.join("-")}</p>
-                  <p className="text-sm px-1 dark:text-gray-400">
+                  <p className="text-sm dark:text-gray-300">
+                    Years of Experience: {trainer.experience}
+                  </p>
+                  <p className="text-sm">
+                    Availability: {trainer.availableDays.join(" - ")}
+                  </p>
+                  <p className="text-sm px-1 overflow-hidden dark:text-gray-400">
                     {trainer.biography}
                   </p>
                 </div>
-                <button
-                  type="button"
-                  className="px-8 py-3 font-semibold rounded dark:bg-accent dark:text-gray-100"
-                >
-                  <Link to={`/alltrainers/${trainer._id}`}>
+                <div className="flex gap-4 my-3">
+                  <FaFacebook className="text-2xl text-blue-600" />
+                  <FaTwitter className="text-2xl text-blue-400" />
+                  <FaYoutube className="text-2xl text-red-600" />
+                </div>
+                <Link to={`/alltrainers/${trainer._id}`} className="w-full">
+                  <button
+                    type="button"
+                    className="w-full px-8 py-2 font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-b-lg"
+                  >
                     Know More
-                  </Link>
-                </button>
+                  </button>
+                </Link>
               </div>
             ))}
           </div>

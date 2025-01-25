@@ -45,7 +45,7 @@ const ForumPost = () => {
           <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {forumPosts.slice(1).map((post) => (
               <a
-                key={post.id}
+                key={post._id}
                 rel="noopener noreferrer"
                 href="#"
                 className="max-w-sm rounded-2xl mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50 "

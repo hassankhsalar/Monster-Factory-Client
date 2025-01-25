@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 
 const BookedTrainerCart = () => {
   const [cart, refetch] = useCart();
+  //console.log(cart);
   const totalPrice = cart.reduce((total, item) => total + item.packagePrice, 0);
   const axiosSecure = useAxiosSecure();
   const handleDelete = (id) => {
@@ -65,6 +66,9 @@ const BookedTrainerCart = () => {
                       <p className="text-sm dark:text-gray-600">
                         {item.trainerName}
                       </p>
+                      <p className="text-sm dark:text-gray-600">
+                        {item.selectedTime}
+                      </p>
                     </div>
                     <div className="text-right">
                       <p className="text-lg font-semibold">
@@ -91,7 +95,7 @@ const BookedTrainerCart = () => {
                       </svg>
                       <span>Remove</span>
                     </button>
-                    <button
+                    <button disabled
                       type="button"
                       className="flex items-center px-2 py-1 space-x-1"
                     >

@@ -18,6 +18,8 @@ const BookedTrainer = () => {
   const { trainerName, trainerPhoto, selectedTime, classTitle, trainerId } =
     location.state || {};
 
+    console.log(classTitle);
+
   const plans = [
     {
       name: "Beginner",
@@ -76,6 +78,7 @@ const BookedTrainer = () => {
               showConfirmButton: false,
               timer: 1500,
             });
+            navigate('/dashboard/bookedtrainercart')
           }
         });
       }
@@ -184,7 +187,7 @@ const BookedTrainer = () => {
           disabled={!selectedPlan}
           className="px-5 py-3 font-bold text-white bg-green-500 rounded disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Add to Cart
+          Join Now!
         </button>
       </div>
     </div>

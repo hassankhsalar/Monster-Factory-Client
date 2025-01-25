@@ -6,8 +6,10 @@ import { Helmet } from "react-helmet-async";
 
 const ActivityLog = () => {
   const { user } = useAuth();
+  console.log(user);
   const axiosSecure = useAxiosSecure();
   const [trainerApplications, setTrainerApplications] = useState([]);
+  const [filteredApplications, setFilteredApplications] = useState([]);
   const [selectedFeedback, setSelectedFeedback] = useState("");
   const [showModal, setShowModal] = useState(false);
 
@@ -34,6 +36,16 @@ const ActivityLog = () => {
     setSelectedFeedback("");
   };
 
+  useEffect(() => {
+    if (user && user.email) {
+      // Filter applications by user.email
+      const filtered = trainerApplications.filter(
+        (application) => application.email === user.email
+      );
+      setFilteredApplications(filtered);
+    }
+  }, [trainerApplications, user]);
+
   return (
     <div className="container mx-auto p-6">
       <Helmet>
@@ -48,7 +60,7 @@ const ActivityLog = () => {
           </tr>
         </thead>
         <tbody>
-          {trainerApplications.map((application) => (
+          {filteredApplications.map((application) => (
             <tr key={application._id}>
               <td className="border-b px-4 py-2">
                 {application.status === "pending" && (

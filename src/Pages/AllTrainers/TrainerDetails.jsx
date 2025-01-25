@@ -13,6 +13,7 @@ const TrainerDetails = () => {
   const location = useLocation();
   const { classTitle, trainerId } = location.state || {};
 
+
   const handleBooking = (time) => {
     navigate("/bookedtrainer", {
       state: {
@@ -106,6 +107,7 @@ const TrainerDetails = () => {
           <div className="flex gap-2 mt-2">
             {availableTimes.map((time) => (
               <button
+              disabled={!classTitle}
                 key={time}
                 onClick={() => handleBooking(time)}
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"

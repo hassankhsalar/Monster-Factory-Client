@@ -8,12 +8,12 @@ import { Helmet } from "react-helmet-async";
 const DashBoard = () => {
   const navigate = useNavigate();
   const { user, logOut } = useAuth();
-  console.log(user);
+  //console.log(user);
 
   const [isAdmin] = useAdmin();
 
   const [users, , isLoading] = useUser();
-  console.log(users);
+  //console.log(users);
 
   const handleLogout = () => {
     logOut()
