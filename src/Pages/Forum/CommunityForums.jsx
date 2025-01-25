@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { FaUserTie } from "react-icons/fa";
+import { FaUserPen } from "react-icons/fa6";
 
 const CommunityForums = () => {
-    const [forums, setForums] = useState([]);
-   const  axiosSecure = useAxiosSecure();
+  const [forums, setForums] = useState([]);
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
     const fetchForums = async () => {
       try {
@@ -40,17 +42,24 @@ const CommunityForums = () => {
                 alt={forum.createdBy.displayName}
                 className="w-8 h-8 rounded-full mr-2"
               />
-              <div>
-                <p className="font-semibold">{forum.createdBy.displayName}</p>
-                <span
-                  className={`text-sm px-2 py-1 rounded ${
-                    forum.createdBy.role === "Admin"
-                      ? "bg-red-500 text-white"
-                      : "bg-green-500 text-white"
-                  }`}
+              <div className="flex gap-2">
+                <p className=" text-2xl font-semibold">{forum.createdBy.displayName}</p>
+                <button
+                  type="button"
+                  className="px-2 py-1 font-semibold rounded dark:bg-zinc-300"
                 >
-                  {forum.createdBy.role === "Admin" ? "Admin" : "Trainer"}
-                </span>
+                  {forum.createdBy.role === "admin" ? (
+                    <>
+                      {" "}
+                      <FaUserTie className="text-green-500"></FaUserTie>{" "}
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <FaUserPen className="text-accent"></FaUserPen>{" "}
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>

@@ -2,12 +2,13 @@ import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddNewForum = () => {
   const { user } = useAuth();
-  const [users, , ] = useUser();
+  const [users, ,] = useUser();
   const thisUser = users.find((u) => u.email === user.email);
-  const axiosSecure = useAxiosSecure(); 
+  const axiosSecure = useAxiosSecure();
   const [formData, setFormData] = useState({
     title: "",
     imageURL: "",
@@ -48,6 +49,9 @@ const AddNewForum = () => {
 
   return (
     <div className="container mx-auto p-6">
+      <Helmet>
+        <title>MF || Add forum</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-4">Add a New Forum</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

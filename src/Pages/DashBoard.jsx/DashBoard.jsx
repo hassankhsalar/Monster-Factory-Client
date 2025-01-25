@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import { FaFile, FaHome, FaShoppingCart } from "react-icons/fa";
 import useUser from "../../hooks/useUser";
 import useAdmin from "../../hooks/useAdmin";
+import { Helmet } from "react-helmet-async";
 
 const DashBoard = () => {
   const navigate = useNavigate();
@@ -32,7 +33,11 @@ const DashBoard = () => {
   }
 
   return (
+    
     <div className="bg-">
+      <Helmet>
+        <title>MF || Dashboard</title>
+      </Helmet>
       <div className="h-full p-3 space-y-2 w-60 dark:bg-fuchsia-300 dark:text-gray-800">
         <div className="flex items-center p-2 space-x-4">
           <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
