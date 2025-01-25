@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import useNews from "../../hooks/useNews";
 import { FaEnvelope } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const NewsletterSubscribers = () => {
   const [newsletters] = useNews();
 
   return (
     <div>
+      <Helmet>
+              <title>MF || Newsletter sub</title>
+            </Helmet>
       <div className="container mt-8 p-2 mx-auto sm:p-4 dark:text-gray-800">
         <h2 className="mb-4 text-2xl font-semibold leading-tight">
           All Newsletter Subscribers

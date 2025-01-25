@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { FaUserTie } from "react-icons/fa";
 import { FaUserPen } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const CommunityForums = () => {
   const [forums, setForums] = useState([]);
@@ -22,6 +23,9 @@ const CommunityForums = () => {
 
   return (
     <div className="container mx-auto p-6">
+      <Helmet>
+              <title>MF || Forums</title>
+            </Helmet>
       <h1 className="text-2xl font-bold mb-4">Community Forums</h1>
       <div className="space-y-6">
         {forums.map((forum) => (

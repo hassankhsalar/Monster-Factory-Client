@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AllClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -27,7 +28,9 @@ const AllClasses = () => {
   }, []);
 
   const getMatchingTrainers = (className) => {
-    return trainers.filter((trainer) => trainer.skills.includes(className)).slice(0, 5);
+    return trainers
+      .filter((trainer) => trainer.skills.includes(className))
+      .slice(0, 5);
   };
 
   const totalPages = Math.ceil(classes.length / classesPerPage);
@@ -38,13 +41,20 @@ const AllClasses = () => {
 
   return (
     <section className="p-6 bg-gray-100">
+      <Helmet>
+        <title>MF || All Classes</title>
+      </Helmet>
       <h1 className="text-3xl font-bold text-center mb-6">All Classes</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedClasses.length > 0 ? (
           displayedClasses.map((classItem) => (
             <div key={classItem._id} className="bg-white p-4 rounded shadow">
               <div>
-                <img src={classItem.imageURL} alt="" className="w-full h-40 object-cover rounded" />
+                <img
+                  src={classItem.imageURL}
+                  alt=""
+                  className="w-full h-40 object-cover rounded"
+                />
               </div>
               <h2 className="text-xl font-semibold mb-2">{classItem.title}</h2>
               <p className="text-gray-700 mb-4">{classItem.description}</p>

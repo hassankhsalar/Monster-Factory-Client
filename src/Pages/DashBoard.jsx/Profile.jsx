@@ -3,6 +3,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   const { user } = useAuth();
@@ -60,6 +61,9 @@ const Profile = () => {
 
   return (
     <div className="container mx-auto p-6">
+      <Helmet>
+              <title>MF || Profile</title>
+            </Helmet>
       <h1 className="text-2xl font-bold mb-4">Manage Your Profile</h1>
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <div className="mb-4">

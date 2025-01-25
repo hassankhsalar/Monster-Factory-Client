@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Select from "react-select";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const daysOptions = [
   { value: "sun", label: "Sunday" },
@@ -69,7 +70,7 @@ const BeATrainer = () => {
         Swal.fire({
           title: "Done!",
           icon: "success",
-          draggable: true
+          draggable: true,
         });
         setFormData({
           fullName: "",
@@ -92,6 +93,9 @@ const BeATrainer = () => {
 
   return (
     <section className="p-6 bg-gray-100 text-gray-800">
+      <Helmet>
+        <title>MF || Become Trainer</title>
+      </Helmet>
       <h1 className="text-3xl font-bold text-center mb-6">Be A Trainer</h1>
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
         <div>
@@ -306,10 +310,7 @@ const BeATrainer = () => {
           />
         </div>
         <div>
-          <label
-            htmlFor="biography"
-            className="block mb-2 font-semibold"
-          >
+          <label htmlFor="biography" className="block mb-2 font-semibold">
             Biography
           </label>
           <textarea

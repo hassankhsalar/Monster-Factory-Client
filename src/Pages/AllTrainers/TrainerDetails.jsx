@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { Parallax } from "react-parallax";
+import { Helmet } from "react-helmet-async";
 
 const TrainerDetails = () => {
   const { id } = useParams(); // Get the ID from the URL parameters
@@ -19,7 +20,7 @@ const TrainerDetails = () => {
         trainerPhoto: trainer.imageURL,
         selectedTime: time,
         classTitle: classTitle,
-        trainerId: trainerId
+        trainerId: trainerId,
         // Pricing and other details can be added here
       },
     });
@@ -62,13 +63,16 @@ const TrainerDetails = () => {
 
   return (
     <section className="p-6 bg-gray-100">
+      <Helmet>
+        <title>MF || {trainer.fullName} </title>
+      </Helmet>
       <div className="max-w-4xl flex mb-24 mx-auto bg-white shadow-md rounded-lg overflow-hidden">
         <div className="w-1/2">
-        <img
-          src={trainer.imageURL}
-          alt={trainer.fullName}
-          className="w-full h-full object-cover"
-        />
+          <img
+            src={trainer.imageURL}
+            alt={trainer.fullName}
+            className="w-full h-full object-cover"
+          />
         </div>
         <div className="p-6 w-1/2 ">
           <h2 className="text-2xl font-bold mb-4">{trainer.fullName}</h2>
@@ -110,7 +114,6 @@ const TrainerDetails = () => {
               </button>
             ))}
           </div>
-          
         </div>
       </div>
 

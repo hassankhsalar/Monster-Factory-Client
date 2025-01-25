@@ -1,4 +1,4 @@
-
+import { Helmet } from "react-helmet-async";
 import useTrainer from "../../../hooks/useTrainer";
 import { Link } from "react-router-dom";
 
@@ -22,6 +22,9 @@ const AppliedTrainer = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>MF || Applied Trainer</title>
+      </Helmet>
       <div className="container mt-8 p-2 mx-auto sm:p-4 dark:text-gray-800">
         <h2 className="mb-4 text-2xl font-semibold leading-tight">
           All Trainers
@@ -69,7 +72,9 @@ const AppliedTrainer = () => {
                   </td>
                   <td className="px-8 py-2">
                     <button className="px-4 bg-accent py-1 text-white rounded-lg">
-                      <Link to={`/dashboard/appliedtrainerdetails/${trainer._id}`}>
+                      <Link
+                        to={`/dashboard/appliedtrainerdetails/${trainer._id}`}
+                      >
                         Details
                       </Link>
                     </button>

@@ -2,6 +2,7 @@ import useTrainer from "../../hooks/useTrainer";
 import { FaTrash } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const DashboardAllTrainer = () => {
   const [trainers, refetch, isLoading] = useTrainer();
@@ -48,6 +49,9 @@ const DashboardAllTrainer = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>MF || All Trainer</title>
+      </Helmet>
       <div className="container mt-8 p-2 mx-auto sm:p-4 dark:text-gray-800">
         <h2 className="mb-4 text-2xl font-semibold leading-tight">
           All Trainers

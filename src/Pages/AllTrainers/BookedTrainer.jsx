@@ -5,6 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useCart from "../../hooks/useCart";
+import { Helmet } from "react-helmet-async";
 
 const BookedTrainer = () => {
   const { user } = useContext(AuthContext);
@@ -73,7 +74,7 @@ const BookedTrainer = () => {
               icon: "success",
               title: "added to cart",
               showConfirmButton: false,
-              timer: 1500
+              timer: 1500,
             });
           }
         });
@@ -98,6 +99,9 @@ const BookedTrainer = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
+      <Helmet>
+        <title>MF || Booked Trainer</title>
+      </Helmet>
       <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
         <div className="flex flex-col items-center">
           <img

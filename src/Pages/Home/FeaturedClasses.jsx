@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const FeaturedClasses = () => {
   const [classes, setClasses] = useState([]);
@@ -8,7 +8,13 @@ const FeaturedClasses = () => {
       try {
         const response = await fetch("http://localhost:5000/classes"); // Adjust the URL as needed
         const data = await response.json();
-        setClasses(data);
+
+        // Sort the classes by totalBookings in descending order and take the top 6
+        const sortedClasses = data
+          .sort((a, b) => b.totalBookings - a.totalBookings)
+          .slice(0, 6);
+
+        setClasses(sortedClasses);
       } catch (error) {
         console.error("Error fetching classes:", error);
       }

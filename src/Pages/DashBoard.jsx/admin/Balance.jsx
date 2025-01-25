@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";// Ensure this is the correct path to your axiosSecure hook
+import { useEffect, useState } from "react"; // Ensure this is the correct path to your axiosSecure hook
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const Balance = () => {
   const [payments, setPayments] = useState([]);
@@ -18,10 +19,13 @@ const Balance = () => {
     fetchPayments();
   }, [axiosSecure]);
 
-  const totalPrice = payments.reduce((total, item) => total + item.price, 0)
+  const totalPrice = payments.reduce((total, item) => total + item.price, 0);
 
   return (
     <div className="p-5">
+      <Helmet>
+        <title>MF || Balance </title>
+      </Helmet>
       <h2 className="text-2xl font-semibold mb-5">Payment History</h2>
       <p>Total Balance: ${totalPrice}</p>
       <div className="overflow-x-auto">
@@ -37,13 +41,17 @@ const Balance = () => {
           <tbody>
             {payments.map((payment, index) => (
               <tr key={index} className="text-center">
-                <td className="border border-gray-300 px-4 py-2">{payment.email}</td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {payment.email}
+                </td>
                 <td className="border border-gray-300 px-4 py-2">
                   {Array.isArray(payment.classTitles)
                     ? payment.classTitles.join(", ")
                     : payment.classTitles}
                 </td>
-                <td className="border border-gray-300 px-4 py-2">${payment.price.toFixed(2)}</td>
+                <td className="border border-gray-300 px-4 py-2">
+                  ${payment.price.toFixed(2)}
+                </td>
                 <td className="border border-gray-300 px-4 py-2">
                   {new Date(payment.date).toLocaleDateString()}
                 </td>
@@ -52,7 +60,9 @@ const Balance = () => {
           </tbody>
         </table>
         {payments.length === 0 && (
-          <p className="text-center text-gray-500 mt-5">No payment history found.</p>
+          <p className="text-center text-gray-500 mt-5">
+            No payment history found.
+          </p>
         )}
       </div>
     </div>

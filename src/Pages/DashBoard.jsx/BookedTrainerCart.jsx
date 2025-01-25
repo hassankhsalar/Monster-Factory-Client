@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useCart from "../../hooks/useCart";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const BookedTrainerCart = () => {
   const [cart, refetch] = useCart();
@@ -33,6 +34,9 @@ const BookedTrainerCart = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>MF || Cart</title>
+      </Helmet>
       <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-50 dark:text-gray-800">
         <h2 className="text-xl flex gap-2 font-semibold">
           Your cart{" "}
@@ -123,23 +127,27 @@ const BookedTrainerCart = () => {
               <span className="sr-only sm:not-sr-only">to Classes</span>
             </button>
           </Link>
-          {
-            cart.length ? <Link to='/dashboard/payment'>
-            <button disabled={!cart.length}
-              type="button"
-              className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600"
-            >
-              <span className="sr-only sm:not-sr-only">Continue to</span>
-              Checkout
-            </button>
-          </Link> : <button disabled
+          {cart.length ? (
+            <Link to="/dashboard/payment">
+              <button
+                disabled={!cart.length}
+                type="button"
+                className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600"
+              >
+                <span className="sr-only sm:not-sr-only">Continue to</span>
+                Checkout
+              </button>
+            </Link>
+          ) : (
+            <button
+              disabled
               type="button"
               className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-50 dark:border-violet-600"
             >
               <span className="sr-only sm:not-sr-only">Empty</span>
               Cart
             </button>
-          }
+          )}
         </div>
       </div>
     </div>

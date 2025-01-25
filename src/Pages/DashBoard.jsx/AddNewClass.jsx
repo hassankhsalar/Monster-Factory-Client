@@ -1,25 +1,26 @@
-import { useState } from 'react';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
-import Select from 'react-select';
+import { useState } from "react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Select from "react-select";
+import { Helmet } from "react-helmet-async";
 
 const skills = [
-  { value: 'Strength Training', label: 'Strength Training' },
-  { value: 'Cardio', label: 'Cardio' },
-  { value: 'Nutrition', label: 'Nutrition' },
-  { value: 'Yoga', label: 'Yoga' },
-  { value: 'Fitness', label: 'Fitness' },
+  { value: "Strength Training", label: "Strength Training" },
+  { value: "Cardio", label: "Cardio" },
+  { value: "Nutrition", label: "Nutrition" },
+  { value: "Yoga", label: "Yoga" },
+  { value: "Fitness", label: "Fitness" },
 ];
 
 const AddNewClass = () => {
   const axiosSecure = useAxiosSecure();
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    title: '',
-    imageURL: '',
+    name: "",
+    description: "",
+    title: "",
+    imageURL: "",
   });
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState({ text: '', type: '' });
+  const [message, setMessage] = useState({ text: "", type: "" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,38 +28,49 @@ const AddNewClass = () => {
   };
 
   const handleSkillChange = (selectedOption) => {
-    setFormData((prev) => ({ ...prev, name: selectedOption ? selectedOption.value : '' }));
+    setFormData((prev) => ({
+      ...prev,
+      name: selectedOption ? selectedOption.value : "",
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Basic validation
-    if (!formData.name || !formData.description || !formData.title || !formData.imageURL) {
-      setMessage({ text: 'Please fill in all fields.', type: 'error' });
+    if (
+      !formData.name ||
+      !formData.description ||
+      !formData.title ||
+      !formData.imageURL
+    ) {
+      setMessage({ text: "Please fill in all fields.", type: "error" });
       return;
     }
 
     setLoading(true);
-    setMessage({ text: '', type: '' });
+    setMessage({ text: "", type: "" });
 
     try {
-      const response = await axiosSecure.post('/classes', {
+      const response = await axiosSecure.post("/classes", {
         ...formData,
         totalBookings: 0, // Default value
       });
       console.log(response);
 
-      setMessage({ text: 'Class added successfully!', type: 'success' });
+      setMessage({ text: "Class added successfully!", type: "success" });
       setFormData({
-        name: '',
-        description: '',
-        title: '',
-        imageURL: '',
+        name: "",
+        description: "",
+        title: "",
+        imageURL: "",
       });
     } catch (error) {
-      setMessage({ text: 'Failed to add the class. Please try again.', type: 'error' });
-      console.error('Error:', error);
+      setMessage({
+        text: "Failed to add the class. Please try again.",
+        type: "error",
+      });
+      console.error("Error:", error);
     } finally {
       setLoading(false);
     }
@@ -66,11 +78,14 @@ const AddNewClass = () => {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded">
+      <Helmet>
+        <title>MF || Add Class</title>
+      </Helmet>
       <h1 className="text-xl font-bold mb-4">Add New Class</h1>
       {message.text && (
         <p
           className={`mb-4 text-sm ${
-            message.type === 'error' ? 'text-red-500' : 'text-green-500'
+            message.type === "error" ? "text-red-500" : "text-green-500"
           }`}
         >
           {message.text}
@@ -107,7 +122,10 @@ const AddNewClass = () => {
           />
         </div>
         <div>
-          <label className="block mb-1 text-sm font-medium" htmlFor="description">
+          <label
+            className="block mb-1 text-sm font-medium"
+            htmlFor="description"
+          >
             Description
           </label>
           <textarea
@@ -137,10 +155,10 @@ const AddNewClass = () => {
           type="submit"
           disabled={loading}
           className={`w-full p-2 text-white rounded ${
-            loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'
+            loading ? "bg-gray-400" : "bg-blue-500 hover:bg-blue-600"
           }`}
         >
-          {loading ? 'Submitting...' : 'Add Class'}
+          {loading ? "Submitting..." : "Add Class"}
         </button>
       </form>
     </div>

@@ -16,7 +16,7 @@ const Featured = () => {
   useEffect(() => {
     // Simulate fetching JSON data
     const fetchClasses = async () => {
-      const response = await fetch("featured.json"); // Replace with the actual path to your JSON file
+      const response = await fetch("featured.json"); 
       const data = await response.json();
       setClasses(data);
     };

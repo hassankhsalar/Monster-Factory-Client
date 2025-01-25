@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { FaEye } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const ActivityLog = () => {
   const { user } = useAuth();
@@ -35,6 +36,9 @@ const ActivityLog = () => {
 
   return (
     <div className="container mx-auto p-6">
+      <Helmet>
+        <title>MF || Activity Log</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-4">Trainer Application Status</h1>
       <table className="min-w-full bg-white border border-gray-200">
         <thead>

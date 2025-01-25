@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AppliedTrainerDetails = () => {
   const { id } = useParams(); // Extract _id from URL parameters
@@ -72,6 +73,9 @@ const AppliedTrainerDetails = () => {
 
   return (
     <div>
+      <Helmet>
+              <title>MF || Trainer details</title>
+            </Helmet>
       {/* Back button */}
       <button
         onClick={() => navigate(-1)}
