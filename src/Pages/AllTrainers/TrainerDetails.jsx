@@ -116,7 +116,7 @@ const TrainerDetails = () => {
 
       <Parallax
         blur={1}
-        bgImage="../../../public/Personal-Trainer.jpg"
+        bgImage="/Personal-Trainer.jpg"
         bgImageAlt="the cat"
         strength={200}
       >

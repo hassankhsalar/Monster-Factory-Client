@@ -21,6 +21,11 @@ import AddNewClass from "../Pages/DashBoard.jsx/AddNewClass";
 import AdminRoute from "./AdminRoute";
 import Payment from "../Pages/DashBoard.jsx/payment/Payment";
 import Balance from "../Pages/DashBoard.jsx/admin/Balance";
+import ActivityLog from "../Pages/DashBoard.jsx/Member/ActivityLog";
+import Profile from "../Pages/DashBoard.jsx/Profile";
+import EnrolledClasses from "../Pages/DashBoard.jsx/Member/EnrolledClasses";
+import AddNewForum from "../Pages/DashBoard.jsx/AddNewForum";
+import CommunityForums from "../Pages/Forum/CommunityForums";
 
 
 export const router = createBrowserRouter([
@@ -39,10 +44,6 @@ export const router = createBrowserRouter([
       {
         path: "/allclasses",
         element: <AllClasses></AllClasses>
-      },
-      {
-        path: "/communityforums",
-        
       },
       {
         path: "/login",
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
         path: "/bookedtrainer", 
         element: <PrivateRouter><BookedTrainer></BookedTrainer></PrivateRouter>,
       },
+      {
+        path: "/communityforums", 
+        element: <CommunityForums>,</CommunityForums>,
+      },
     ],
   },
   {
@@ -79,6 +84,19 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/payment',
         element: <Payment></Payment>,
+      },
+      
+      {
+        path: '/dashboard/activitylog',
+        element: <ActivityLog></ActivityLog>,
+      },
+      {
+        path: '/dashboard/profile',
+        element: <Profile></Profile>,
+      },
+      {
+        path: '/dashboard/enrolledClasses',
+        element: <EnrolledClasses></EnrolledClasses>,
       },
       // admin routes
       {
@@ -107,6 +125,13 @@ export const router = createBrowserRouter([
         element: <AdminRoute><Balance></Balance></AdminRoute>
       },
       //trainer routes
+
+      //shared route(admin trainer)
+      {
+        path: '/dashboard/addnewforum',
+        element: <AddNewForum></AddNewForum>
+      },
+
     ]
   },
   {

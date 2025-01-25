@@ -35,17 +35,13 @@ const DashBoard = () => {
     <div className="bg-">
       <div className="h-full p-3 space-y-2 w-60 dark:bg-fuchsia-300 dark:text-gray-800">
         <div className="flex items-center p-2 space-x-4">
-          <img src={user.photoURL} alt="" className="w-12 h-12 rounded-full" />
+          <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
           <div>
             <h2 className="text-lg font-semibold">{user?.displayName}</h2>
             <span className="flex items-center space-x-1">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="text-xs hover:underline "
-              >
-                View profile
-              </a>
+              <Link to='/dashboard/profile' className="text-xs underline">
+              Profile
+              </Link>
             </span>
           </div>
         </div>
@@ -56,7 +52,20 @@ const DashBoard = () => {
                 <FaHome className="text-xl"></FaHome> Dashboard
               </Link>
             </li>
+            <li className="">
+              <Link className="flex gap-2 text-sm px-3" to="/dashboard/addnewforum">
+                <FaHome className="text-xl"></FaHome> Add new Forum
+              </Link>
+            </li>
             {/* member only */}
+            <li className="">
+              <Link
+                className="flex gap-2 text-sm px-3"
+                to="/dashboard/activitylog"
+              >
+                <FaShoppingCart className="text-xl"></FaShoppingCart> Activity Log
+              </Link>
+            </li>
             <li className="">
               <Link
                 className="flex gap-2 text-sm px-3"
@@ -68,9 +77,9 @@ const DashBoard = () => {
             <li className="">
               <Link
                 className="flex gap-2 text-sm px-3"
-                to="/dashboard/bookedtrainercart"
+                to="/dashboard/enrolledClasses"
               >
-                <FaFile className="text-lg" /> My Applications
+                <FaFile className="text-lg" /> Booked Trainer
               </Link>
             </li>
             {/* member end */}

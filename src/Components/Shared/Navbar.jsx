@@ -62,7 +62,7 @@ const Navbar = () => {
           <li className="flex">
             <Link
               className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
-              to="/forums"
+              to="/communityforums"
             >
               Community Forums
             </Link>
@@ -159,7 +159,7 @@ const Navbar = () => {
             <li>
               <Link
                 className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
-                to="/classes"
+                to="/allclasses"
               >
                 All Classes
               </Link>
@@ -167,7 +167,7 @@ const Navbar = () => {
             <li>
               <Link
                 className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
-                to="/forums"
+                to="/communityforums"
               >
                 Community Forums
               </Link>
@@ -187,7 +187,7 @@ const Navbar = () => {
                 <li>
                 <Link
                 className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
-                to="/cart"
+                to="/dashboard/bookedtrainercart"
               >
                 Cart
               </Link>

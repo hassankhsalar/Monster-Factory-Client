@@ -4,7 +4,6 @@ import { FaCheckCircle } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
-import { Bounce, ToastContainer, toast } from 'react-toastify';
 import useCart from "../../hooks/useCart";
 
 const BookedTrainer = () => {

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import Select from "react-select";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const daysOptions = [
   { value: "sun", label: "Sunday" },
@@ -34,6 +35,7 @@ const BeATrainer = () => {
     experience: "",
     biography: "",
     status: "pending",
+    role: "member",
   });
 
   const handleChange = (e) => {
@@ -64,6 +66,11 @@ const BeATrainer = () => {
 
       if (response.ok) {
         setSuccessMessage("Application submitted successfully!");
+        Swal.fire({
+          title: "Done!",
+          icon: "success",
+          draggable: true
+        });
         setFormData({
           fullName: "",
           email: user?.email,
