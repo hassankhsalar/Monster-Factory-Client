@@ -4,6 +4,7 @@ import { FaFile, FaHome, FaShoppingCart } from "react-icons/fa";
 import useUser from "../../hooks/useUser";
 import useAdmin from "../../hooks/useAdmin";
 import { Helmet } from "react-helmet-async";
+import useIfTrainer from "../../hooks/useIfTrainer";
 
 const DashBoard = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const DashBoard = () => {
   //console.log(user);
 
   const [isAdmin] = useAdmin();
+  const [isTrainer] = useIfTrainer();
 
   const [users, , isLoading] = useUser();
   //console.log(users);
@@ -24,16 +26,15 @@ const DashBoard = () => {
   };
   if (isLoading) {
     return (
-        <div className="flex items-center justify-center space-x-2">
+      <div className="flex items-center justify-center space-x-2">
         <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
         <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
         <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
-    </div>
+      </div>
     );
   }
 
   return (
-    
     <div className="bg-">
       <Helmet>
         <title>MF || Dashboard</title>
@@ -44,8 +45,8 @@ const DashBoard = () => {
           <div>
             <h2 className="text-lg font-semibold">{user?.displayName}</h2>
             <span className="flex items-center space-x-1">
-              <Link to='/dashboard/profile' className="text-xs underline">
-              Profile
+              <Link to="/dashboard/profile" className="text-xs underline">
+                Profile
               </Link>
             </span>
           </div>
@@ -57,36 +58,47 @@ const DashBoard = () => {
                 <FaHome className="text-xl"></FaHome> Dashboard
               </Link>
             </li>
-            <li className="">
-              <Link className="flex gap-2 text-sm px-3" to="/dashboard/addnewforum">
-                <FaHome className="text-xl"></FaHome> Add new Forum
-              </Link>
-            </li>
+            {(isAdmin || isTrainer) && (
+              <li>
+                <Link
+                  className="flex gap-2 text-sm px-3"
+                  to="/dashboard/addnewforum"
+                >
+                  <FaHome className="text-xl" /> Add New Forum
+                </Link>
+              </li>
+            )}
             {/* member only */}
-            <li className="">
-              <Link
-                className="flex gap-2 text-sm px-3"
-                to="/dashboard/activitylog"
-              >
-                <FaShoppingCart className="text-xl"></FaShoppingCart> Activity Log
-              </Link>
-            </li>
-            <li className="">
-              <Link
-                className="flex gap-2 text-sm px-3"
-                to="/dashboard/bookedtrainercart"
-              >
-                <FaShoppingCart className="text-xl"></FaShoppingCart> Cart
-              </Link>
-            </li>
-            <li className="">
-              <Link
-                className="flex gap-2 text-sm px-3"
-                to="/dashboard/enrolledClasses"
-              >
-                <FaFile className="text-lg" /> Booked Trainer
-              </Link>
-            </li>
+
+            {!isAdmin && !isTrainer && (
+              <>
+                <li>
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/activitylog"
+                  >
+                    <FaShoppingCart className="text-xl" /> Activity Log
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/bookedtrainercart"
+                  >
+                    <FaShoppingCart className="text-xl" /> Cart
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="flex gap-2 text-sm px-3"
+                    to="/dashboard/enrolledClasses"
+                  >
+                    <FaFile className="text-lg" /> Booked Trainer
+                  </Link>
+                </li>
+              </>
+            )}
+
             {/* member end */}
 
             {/* admin only */}
