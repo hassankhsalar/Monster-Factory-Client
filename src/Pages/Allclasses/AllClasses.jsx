@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet-async";
 const AllClasses = () => {
   const [classes, setClasses] = useState([]);
   const [trainers, setTrainers] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const classesPerPage = 6;
 
@@ -39,12 +40,38 @@ const AllClasses = () => {
     currentPage * classesPerPage
   );
 
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/classes/search?name=${searchQuery}`
+      );
+      setClasses(response.data);
+    } catch (error) {
+      console.error("Error searching classes:", error);
+    }
+  };
+
   return (
     <section className="p-6 bg-gray-100">
       <Helmet>
         <title>MF || All Classes</title>
       </Helmet>
       <h1 className="text-3xl font-bold text-center mb-6">All Classes</h1>
+      <div className="mb-4 flex justify-center">
+        <input
+          type="text"
+          placeholder="Search classes by name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="px-4 py-2 border rounded-l-md focus:outline-none"
+        />
+        <button
+          onClick={handleSearch}
+          className="px-4 py-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600"
+        >
+          Search
+        </button>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedClasses.length > 0 ? (
           displayedClasses.map((classItem) => (
