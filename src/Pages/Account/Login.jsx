@@ -49,7 +49,7 @@ const Login = () => {
         console.log(user);
       });
       setSuccessMessage("Login successful!");
-      setFormData({ email: "", password: "" }); // Reset form
+      setFormData({ email: "", password: "" });
       console.log(formData);
       Swal.fire({
         title: "Logged in successfully!",

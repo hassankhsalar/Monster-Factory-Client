@@ -5,7 +5,7 @@ import { Parallax } from "react-parallax";
 import { Helmet } from "react-helmet-async";
 
 const TrainerDetails = () => {
-  const { id } = useParams(); // Get the ID from the URL parameters
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [trainer, setTrainer] = useState(null);
   const [loading, setLoading] = useState(true);

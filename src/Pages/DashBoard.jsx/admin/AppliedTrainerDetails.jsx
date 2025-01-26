@@ -4,13 +4,13 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 
 const AppliedTrainerDetails = () => {
-  const { id } = useParams(); // Extract _id from URL parameters
+  const { id } = useParams(); 
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
-  const [trainer, setTrainer] = useState(null); // State to store trainer data
-  const [loading, setLoading] = useState(true); // Loading state
-  const [showModal, setShowModal] = useState(false); // Modal state
-  const [feedback, setFeedback] = useState(""); // Feedback for rejection
+  const [trainer, setTrainer] = useState(null); 
+  const [loading, setLoading] = useState(true); 
+  const [showModal, setShowModal] = useState(false); 
+  const [feedback, setFeedback] = useState(""); 
 
   useEffect(() => {
     const fetchTrainer = async () => {
@@ -26,7 +26,7 @@ const AppliedTrainerDetails = () => {
     };
 
     if (id) {
-      fetchTrainer(); // Call fetch function if id exists
+      fetchTrainer(); 
     }
   }, [id, axiosSecure]);
 

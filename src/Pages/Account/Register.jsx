@@ -57,7 +57,7 @@ const Register = () => {
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
     } else {
-      // Create user with default role as 'user'
+      // Create user with default'user'
       createuser(formData.email, formData.password).then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -69,7 +69,7 @@ const Register = () => {
               imageURL: formData.photoURL,
               role: "member",
             };
-            //create user entry in the database
+            //create user entrydb
             axiosPublic.post("/users", userInfo).then((res) => {
               if (res.data.insertedId) {
                 console.log("user profile info updated");
