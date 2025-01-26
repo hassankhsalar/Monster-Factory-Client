@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"; // Ensure this is the correct path to your axiosSecure hook
+import { useEffect, useState } from "react"; 
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 
@@ -9,8 +9,8 @@ const Balance = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await axiosSecure.get("/payments"); // Fetch payments from backend
-        setPayments(response.data); // Assuming the response contains an array of payment objects
+        const response = await axiosSecure.get("/payments"); 
+        setPayments(response.data); 
       } catch (error) {
         console.error("Error fetching payment data:", error);
       }

@@ -29,7 +29,7 @@ const AddNewForum = () => {
       createdBy: {
         email: user.email,
         displayName: user.displayName,
-        role: thisUser.role, // Assuming role is Admin/Trainer
+        role: thisUser.role,
         photoURL: user.photoURL,
       },
       createdAt: new Date(),
