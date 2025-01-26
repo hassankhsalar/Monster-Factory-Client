@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
@@ -12,22 +12,30 @@ import {
 
 const queryClient = new QueryClient();
 
-// Check system preferences and apply dark mode if applicable
-if (
-  localStorage.getItem("theme") === "dark" ||
-  (!localStorage.getItem("theme") &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
+// Theme component to handle dark mode
+const ThemeProvider = () => {
+  useEffect(() => {
+    const isDarkMode =
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  return null; // No need to render anything
+};
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
+          <ThemeProvider /> {/* Add ThemeProvider here */}
           <RouterProvider router={router} />
         </AuthProvider>
       </QueryClientProvider>

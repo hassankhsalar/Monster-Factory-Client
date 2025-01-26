@@ -1,14 +1,15 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { FaCartShopping } from "react-icons/fa6";
 import useCart from "../../hooks/useCart";
+import { FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  const [ cart ] = useCart();
+  const [cart] = useCart();
 
   const { user, logOut } = useContext(AuthContext);
 
@@ -75,6 +76,24 @@ const Navbar = () => {
               Dashboard
             </Link>
           </li>
+          <li>
+            <button
+              onClick={() => {
+                const isDark =
+                  document.documentElement.classList.contains("dark");
+                if (isDark) {
+                  document.documentElement.classList.remove("dark");
+                  localStorage.setItem("theme", "light");
+                } else {
+                  document.documentElement.classList.add("dark");
+                  localStorage.setItem("theme", "dark");
+                }
+              }}
+              className="px-4 flex py-2 mt-4 bg-primary text-white rounded"
+            >
+              <FaMoon className="text-2xl"></FaMoon> Toggle Dark
+            </button>
+          </li>
         </ul>
         <div className="items-center flex-shrink-0 hidden lg:flex">
           {user ? (
@@ -94,10 +113,14 @@ const Navbar = () => {
                   >
                     Logout
                   </button>
-                  <Link to='/dashboard/bookedtrainercart' className="relative inline-flex items-center justify-center px-4 py-3 text-lg text-white rounded bg-primary">
+                  <Link
+                    to="/dashboard/bookedtrainercart"
+                    className="relative inline-flex items-center justify-center px-4 py-3 text-lg text-white rounded bg-primary"
+                  >
                     <FaCartShopping></FaCartShopping>
                     <span className="absolute -top-2.5 -right-2.5 inline-flex items-center justify-center gap-1 rounded-full border-2 border-white bg-pink-500 px-1.5 text-sm text-white">
-                      +{cart.length}<span className="sr-only"> new emails </span>
+                      +{cart.length}
+                      <span className="sr-only"> new emails </span>
                     </span>
                   </Link>
                 </div>
@@ -180,6 +203,26 @@ const Navbar = () => {
                 Community Forums
               </Link>
             </li>
+            <li>
+              <li>
+                <button
+                  onClick={() => {
+                    const isDark =
+                      document.documentElement.classList.contains("dark");
+                    if (isDark) {
+                      document.documentElement.classList.remove("dark");
+                      localStorage.setItem("theme", "light");
+                    } else {
+                      document.documentElement.classList.add("dark");
+                      localStorage.setItem("theme", "dark");
+                    }
+                  }}
+                  className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Toggle Dark Mode
+                </button>
+              </li>
+            </li>
 
             {user ? (
               <>
@@ -193,13 +236,13 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                <Link
-                className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
-                to="/dashboard/profile"
-              >
-                Cart/Dash
-              </Link>
-                  </li>{" "}
+                  <Link
+                    className="block px-4 py-2 text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    to="/dashboard/profile"
+                  >
+                    Cart/Dash
+                  </Link>
+                </li>{" "}
               </>
             ) : (
               <>

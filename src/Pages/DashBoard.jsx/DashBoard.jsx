@@ -68,7 +68,29 @@ const DashBoard = () => {
                 </Link>
               </li>
             )}
-            {/* member only */}
+            {/* trainer only */}
+            {(isTrainer) && (
+              <li>
+                <Link
+                  className="flex gap-2 text-sm px-3"
+                  to="/dashboard/manageslots"
+                >
+                  <FaHome className="text-xl" />Manage Slots
+                </Link>
+              </li>
+              
+            )}
+            {(isTrainer) && (
+              <li>
+                <Link
+                  className="flex gap-2 text-sm px-3"
+                  to="/dashboard/addnewslot"
+                >
+                  <FaHome className="text-xl" />Add New Slots
+                </Link>
+              </li>
+              
+            )}
 
             {!isAdmin && !isTrainer && (
               <>

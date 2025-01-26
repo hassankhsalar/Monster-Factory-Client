@@ -26,6 +26,8 @@ import Profile from "../Pages/DashBoard.jsx/Profile";
 import EnrolledClasses from "../Pages/DashBoard.jsx/Member/EnrolledClasses";
 import AddNewForum from "../Pages/DashBoard.jsx/AddNewForum";
 import CommunityForums from "../Pages/Forum/CommunityForums";
+import ManageSlots from "../Pages/DashBoard.jsx/Trainer/ManageSlots";
+import AddNewSlot from "../Pages/DashBoard.jsx/Trainer/AddNewSlot";
 
 
 export const router = createBrowserRouter([
@@ -125,12 +127,20 @@ export const router = createBrowserRouter([
         element: <AdminRoute><Balance></Balance></AdminRoute>
       },
       //trainer routes
-
+      {
+        path: '/dashboard/manageslots',
+        element: <ManageSlots></ManageSlots>
+      },
+      {
+        path: '/dashboard/addnewslot',
+        element: <AddNewSlot></AddNewSlot>
+      },
       //shared route(admin trainer)
       {
         path: '/dashboard/addnewforum',
         element: <AddNewForum></AddNewForum>
       },
+      
 
     ]
   },
