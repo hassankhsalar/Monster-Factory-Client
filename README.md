@@ -1,6 +1,6 @@
 
 
-# Client-Side - Slot Management System
+# Client-Side - Monster-Factory
 
 This is the client-side repository for the Monster Factory project. Its an Fitness portal where users can choose their desired classes with the trainer of their choice. 
 Monster-factory allows users to carve the routine according to their goals while not breaking the Bank. 
