@@ -6,6 +6,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useCart from "../../hooks/useCart";
 import { Helmet } from "react-helmet-async";
+import blog2 from '/blog2.jpg';
 
 const BookedTrainer = () => {
   const { user } = useContext(AuthContext);
@@ -107,11 +108,15 @@ const BookedTrainer = () => {
       </Helmet>
       <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
         <div className="flex flex-col items-center">
-          <img
+          { trainerPhoto ? <><img
             src={trainerPhoto}
             alt={trainerName}
             className="w-40 h-40 object-cover rounded-full mb-4"
-          />
+          /></> : <><img
+          src={blog2}
+          alt={trainerName}
+          className="w-40 h-40 object-cover rounded-full mb-4"
+        /> </>}
           <h1 className="text-2xl font-bold mb-2">{trainerName}</h1>
           <p className="text-gray-700 mb-4">
             <strong>Selected Time:</strong> {selectedTime}

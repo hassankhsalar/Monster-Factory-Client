@@ -1,17 +1,9 @@
 # Client-Side - Slot Management System
 
-This is the client-side repository for the Slot Management System. It allows trainers to manage their slots, including adding new slots and viewing existing slots.
-
-## Features
-- Responsive and user-friendly design.
-- Add new slots with the following details:
-  - Select available days.
-  - Enter slot name and time.
-  - Select classes (provided by the admin).
-  - Additional optional information.
-- View and manage all slots in a tabular format.
-- Integrated dark mode functionality.
-- Developed using modern React features.
+This is the client-side repository for the Monster Factory project. Its an Fitness portal where users can choose their desired classes with the trainer of their choice. 
+Monster-factory allows users to carve the routine according to their goals while not breaking the Bank. 
+Expert trainer can also join.Trainers can add/remove slots for a specific class and write on forums.
+Admin takes  charge off all the Control with a user Friendly Dashboard 'Currently working'.
 
 ---
 
@@ -30,11 +22,13 @@ This is the client-side repository for the Slot Management System. It allows tra
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-hassankhsalar.git
+   git clone https://github.com/hassankhsalar/Monster-Factory-Client.git
    cd client
 
 ## Project Structure
 src/components: Contains reusable UI components.
 src/pages: Contains pages like Add Slot and Manage Slots.
 src/hooks: Contains custom hooks like useAxiosSecure.
-src/styles: Custom styles and Tailwind configurations.
+src/routes: Admin, Private Routes.
+src/layouts: Window layouts for Main pages and Dashboard.
+src/firebase: Firebase configuration files.

@@ -28,6 +28,8 @@ import AddNewForum from "../Pages/DashBoard.jsx/AddNewForum";
 import CommunityForums from "../Pages/Forum/CommunityForums";
 import ManageSlots from "../Pages/DashBoard.jsx/Trainer/ManageSlots";
 import AddNewSlot from "../Pages/DashBoard.jsx/Trainer/AddNewSlot";
+import AboutUs from "../Pages/AboutUs";
+import Jobs from "../Pages/Jobs";
 
 
 export const router = createBrowserRouter([
@@ -71,6 +73,15 @@ export const router = createBrowserRouter([
       {
         path: "/communityforums", 
         element: <CommunityForums>,</CommunityForums>,
+      },
+      {
+        path: "/aboutus", 
+        element: <AboutUs></AboutUs>,
+      },
+      
+      {
+        path: "/jobs", 
+        element: <Jobs></Jobs>,
       },
     ],
   },

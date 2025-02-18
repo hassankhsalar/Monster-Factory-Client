@@ -17,6 +17,18 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
   console.log(from);
 
+  // Predefined credentials
+  const predefinedUsers = {
+    user: { email: "protyasha@gmail.com", password: "Xiaomimi4@" },
+    trainer: { email: "swapnil@gmail.com", password: "Xiaomimi4@" },
+    admin: { email: "billgates@gmail.com", password: "SamsungS24#" },
+  };
+
+  // Function to auto-fill credentials
+  const handleFillCredentials = (role) => {
+    setFormData(predefinedUsers[role]);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -71,6 +83,28 @@ const Login = () => {
             Monster Factory
           </span>
           <h1 className="text-5xl font-extrabold dark:text-gray-900">Login</h1>
+
+          <div className="flex gap-3 mb-4 py-2">
+            <button className=" text-xl p-2 rounded-md text-accent">Click To Login As:</button>
+            <button
+              onClick={() => handleFillCredentials("user")}
+              className="px-4 py-2 bg-blue-500 text-white rounded"
+            >
+              User
+            </button>
+            <button
+              onClick={() => handleFillCredentials("trainer")}
+              className="px-4 py-2 bg-green-500 text-white rounded"
+            >
+              Trainer
+            </button>
+            <button
+              onClick={() => handleFillCredentials("admin")}
+              className="px-4 py-2 bg-red-500 text-white rounded"
+            >
+              Admin
+            </button>
+          </div>
 
           <form
             noValidate

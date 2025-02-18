@@ -8,6 +8,7 @@ import Testimonials from "./Testimonials";
 import TrainerInfo from "./TrainerInfo";
 import { Helmet } from "react-helmet-async";
 
+
 const Home = () => {
   return (
     <div>

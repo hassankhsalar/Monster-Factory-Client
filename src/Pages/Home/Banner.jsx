@@ -1,5 +1,12 @@
+import { Link } from "react-router-dom";
 
 const Banner = () => {
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+  
+
   return (
     <section className="dark:bg-gray-100 dark:text-gray-800  bg-[url('/banner3.jpg')] bg-cover bg-center">
       <div className="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
@@ -13,9 +20,9 @@ const Banner = () => {
         </p>
         <div className="flex flex-wrap justify-center">
           <button className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-violet-600 dark:text-gray-50">
-            Get started
+            <Link to='/allclasses'>Get started</Link>
           </button>
-          <button className="px-8 py-3 m-2 text-lg border rounded dark:text-gray-900 dark:border-gray-300">
+          <button onClick={() => scrollToSection("aboutus")} className="px-8 py-3 m-2 text-lg border rounded dark:text-gray-900 dark:border-gray-300">
             Learn more
           </button>
         </div>

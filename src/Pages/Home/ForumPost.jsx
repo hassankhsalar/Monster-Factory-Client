@@ -16,7 +16,7 @@ const ForumPost = () => {
   }, []);
 
   return (
-    <div>
+    <div id="integrations">
       <section className="">
         <h2 className="text-center text-4xl font-bold">Latest Community Posts</h2>
         <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">

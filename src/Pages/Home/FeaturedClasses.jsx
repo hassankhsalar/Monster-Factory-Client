@@ -24,7 +24,7 @@ const FeaturedClasses = () => {
   }, []);
 
   return (
-    <div className="container mx-auto py-8">
+    <div id='featured' className="container mx-auto py-8">
       <h2 className="text-4xl font-bold text-center mb-6">Featured Classes</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {classes.map((cls) => (

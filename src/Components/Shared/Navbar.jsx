@@ -2,9 +2,9 @@ import { useContext, useState } from "react";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping, FaCircleHalfStroke } from "react-icons/fa6";
 import useCart from "../../hooks/useCart";
-import { FaMoon } from "react-icons/fa";
+
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -91,7 +91,7 @@ const Navbar = () => {
               }}
               className="px-4 flex py-2 mt-4 bg-primary text-white rounded"
             >
-              <FaMoon className="text-2xl"></FaMoon> Toggle Dark
+              <FaCircleHalfStroke className="text-2xl"></FaCircleHalfStroke>
             </button>
           </li>
         </ul>
