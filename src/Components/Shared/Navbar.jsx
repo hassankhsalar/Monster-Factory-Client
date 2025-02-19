@@ -52,14 +52,16 @@ const Navbar = () => {
               All Trainers
             </Link>
           </li>
-          <li className="flex">
+          {
+            user? <><li className="flex">
             <Link
               className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
               to="/allclasses"
             >
               All Classes
             </Link>
-          </li>
+          </li></> : <></>
+          }
           <li className="flex">
             <Link
               className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
@@ -68,14 +70,16 @@ const Navbar = () => {
               Community Forums
             </Link>
           </li>
-          <li className="flex">
+          {
+            user? <><li className="flex">
             <Link
               className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
               to="/dashboard/profile"
             >
               Dashboard
             </Link>
-          </li>
+          </li></> : <></>
+          }
           <li>
             <button
               onClick={() => {
@@ -103,7 +107,7 @@ const Navbar = () => {
                 <div className="flex space-x-5">
                   <img
                     alt=""
-                    className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-violet-600 dark:ring-offset-gray-100"
+                    className="w-10 h-10 mt-1 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-violet-600 dark:ring-offset-gray-100"
                     src={user.photoURL}
                   />
                   <button
