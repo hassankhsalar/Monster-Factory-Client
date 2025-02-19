@@ -25,17 +25,26 @@ const BookedTrainer = () => {
     {
       name: "Beginner",
       price: 10,
-      description: "Etiam ac convallis enim, eget euismod dolor.",
+      description: "Basic features to get the job done!",
+      feature1: "1 weekly counselling",
+      feature2: "1 progress checking session",
+      feature3: "1 routine revision/week",
     },
     {
       name: "Pro",
       price: 24,
-      description: "Morbi cursus ut sapien sit amet consectetur.",
+      description: "Extra Effort and sweet spot",
+      feature1: "3 weekly counselling",
+      feature2: "3 progress checking session",
+      feature3: "2 routine revision/week",
     },
     {
       name: "Team",
       price: 72,
-      description: "Phasellus ultrices bibendum nibh in vehicula.",
+      description: "Hardcore preparation",
+      feature1: "Unlimited weekly counselling",
+      feature2: "7 progress checking session",
+      feature3: "3 routine revision/week",
     },
   ];
 
@@ -154,15 +163,15 @@ const BookedTrainer = () => {
                       <ul className="flex-1 mb-6 dark:text-gray-600">
                         <li className="flex mb-2 space-x-2">
                           <FaCheckCircle className="text-accent text-xl" />
-                          <span>Aenean quis</span>
+                          <span>{plan.feature1}</span>
                         </li>
                         <li className="flex mb-2 space-x-2">
                           <FaCheckCircle className="text-accent text-xl" />
-                          <span>Morbi semper</span>
+                          <span>{plan.feature2}</span>
                         </li>
                         <li className="flex mb-2 space-x-2">
                           <FaCheckCircle className="text-accent text-xl" />
-                          <span>Tristique enim nec</span>
+                          <span>{plan.feature3}</span>
                         </li>
                       </ul>
                       <button
