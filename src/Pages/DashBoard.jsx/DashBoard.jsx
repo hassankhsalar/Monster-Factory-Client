@@ -35,11 +35,11 @@ const DashBoard = () => {
   }
 
   return (
-    <div className="bg-">
+    <div className="">
       <Helmet>
         <title>MF || Dashboard</title>
       </Helmet>
-      <div className="h-full p-3 space-y-2 w-60 dark:bg-fuchsia-300 dark:text-gray-800">
+      <div className="h-full p-3 space-y-2 dark:bg-fuchsia-300 dark:text-gray-800">
         <div className="flex items-center p-2 space-x-4">
           <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
           <div>
@@ -53,11 +53,14 @@ const DashBoard = () => {
         </div>
         <div className="divide-y flex flex-col justify-center ga dark:divide-gray-300">
           <ul className="pt-2 pb-4 space-y-3 text-sm">
-            <li className="">
+            
+            {(isAdmin || isTrainer) && (
+              <li className="">
               <Link className="flex gap-2 text-sm px-3" to="/dashboard">
                 <FaHome className="text-xl"></FaHome> Dashboard
               </Link>
             </li>
+            )}
             {(isAdmin || isTrainer) && (
               <li>
                 <Link

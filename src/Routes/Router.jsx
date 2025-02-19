@@ -30,6 +30,7 @@ import ManageSlots from "../Pages/DashBoard.jsx/Trainer/ManageSlots";
 import AddNewSlot from "../Pages/DashBoard.jsx/Trainer/AddNewSlot";
 import AboutUs from "../Pages/AboutUs";
 import Jobs from "../Pages/Jobs";
+import DashboardCharts from "../Pages/DashBoard.jsx/DashboardCharts";
 
 
 export const router = createBrowserRouter([
@@ -90,6 +91,10 @@ export const router = createBrowserRouter([
     element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
     children: [
       //Member routes
+      {
+        path: '/dashboard',
+        element: <DashboardCharts></DashboardCharts>,
+      },
       {
         path: '/dashboard/bookedtrainercart',
         element: <BookedTrainerCart></BookedTrainerCart>,

@@ -10,7 +10,7 @@ const DashboardLayout = () => {
         <Navbar></Navbar>
       </div>
       <div className="flex">
-        <div className="w-64 pt-6 bg-fuchsia-300 min-h-screen">
+        <div className="w-40 md:w-64 pt-6 bg-fuchsia-300 min-h-screen">
           <DashBoard></DashBoard>
         </div>
         <div>
