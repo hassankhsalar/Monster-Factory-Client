@@ -38,7 +38,7 @@ const Navbar = () => {
         <ul className="items-stretch hidden space-x-3 lg:flex">
           <li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 border-b-2  text-violet-600 border-violet-600  dark:border- dark:text-violet-600 dark:border-violet-600"
               to="/"
             >
               Home
@@ -46,7 +46,7 @@ const Navbar = () => {
           </li>
           <li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600  border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
               to="/alltrainers"
             >
               All Trainers
@@ -55,7 +55,7 @@ const Navbar = () => {
           {
             user? <><li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
               to="/allclasses"
             >
               All Classes
@@ -64,7 +64,7 @@ const Navbar = () => {
           }
           <li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
               to="/communityforums"
             >
               Community Forums
@@ -73,7 +73,7 @@ const Navbar = () => {
           {
             user? <><li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
               to="/dashboard/profile"
             >
               Dashboard
@@ -107,13 +107,13 @@ const Navbar = () => {
                 <div className="flex space-x-5">
                   <img
                     alt=""
-                    className="w-10 h-10 mt-1 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 dark:ring-violet-600 dark:ring-offset-gray-100"
+                    className="w-10 h-10 mt-1 rounded-full ring-2 ring-offset-4  dark:bg-gray-500 dark:ring-violet-600 dark:ring-offset-gray-100"
                     src={user.photoURL}
                   />
                   <button
                     onClick={handleLogout}
                     type="button"
-                    className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-100"
+                    className="px-8 py-3 font-semibold rounded bg-violet-400 dark:bg-violet-400 dark:text-gray-100"
                   >
                     Logout
                   </button>
@@ -135,7 +135,7 @@ const Navbar = () => {
               {" "}
               <li>
                 <Link
-                  className="px-8 mr-4 py-3 font-semibold rounded dark:bg-slate-400 dark:text-black"
+                  className="px-8 mr-4 py-3 font-semibold rounded bg-slate-400 dark:bg-slate-400 dark:text-black"
                   to="/login"
                 >
                   Login
@@ -143,7 +143,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
+                  className="self-center px-8 py-3 font-semibold rounded bg-violet-600 dark:bg-violet-600 dark:text-gray-50"
                   to="/register"
                 >
                   Register
