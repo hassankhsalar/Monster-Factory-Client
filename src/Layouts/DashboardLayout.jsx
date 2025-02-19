@@ -13,7 +13,7 @@ const DashboardLayout = () => {
         <div className="w-40 md:w-64 pt-6 bg-fuchsia-300 min-h-screen">
           <DashBoard></DashBoard>
         </div>
-        <div>
+        <div className="w-full">
           <Outlet></Outlet>
         </div>
       </div>
