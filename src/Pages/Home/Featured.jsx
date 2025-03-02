@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Featured = () => {
   const [classes, setClasses] = useState([]);
@@ -27,7 +28,7 @@ const Featured = () => {
   return (
     <div>
       <div className="text-center mt-6 mb-6">
-        <button className="text-2xl text-accent font-bold">Our Classes</button>
+        <button className="text-2xl text-accent font-bold"><Link to='/allclasses'>Our Classes</Link></button>
         <h2 className="text-4xl font-semibold">
           Fitness Classes for Every Goal
         </h2>

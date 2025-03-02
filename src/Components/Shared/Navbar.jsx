@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -8,6 +8,8 @@ import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const scrollPos = useRef(0);
 
   const [cart] = useCart();
 
@@ -23,8 +25,23 @@ const Navbar = () => {
     setDropdownOpen((prev) => !prev);
   };
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowNavbar(window.scrollY < scrollPos.current);
+      scrollPos.current = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="p-4 bg-white dark:bg-slate-800 dark:text-gray-800">
+    <header
+      className={`p-4 bg-white sticky top-0 w-full z-50 shadow-md transition-transform duration-300 dark:bg-slate-800 dark:text-gray-100 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="container flex justify-between h-16 mx-auto">
         <a
           rel="noopener noreferrer"
