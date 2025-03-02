@@ -15,7 +15,7 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="mb-10">
+    <section className="mb-10 dark:bg-gray-800">
       <div>
         <div className="container flex flex-col items-center mx-auto  md:p-10 md:px-12">
           <h1 className="p-4 text-4xl text-orange-500 font-semibold leading-none text-center">

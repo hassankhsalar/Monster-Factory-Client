@@ -26,10 +26,10 @@ const Featured = () => {
   }, []);
 
   return (
-    <div>
-      <div className="text-center mt-6 mb-6">
+    <div className="dark:bg-gray-800">
+      <div className="text-center mt-6 mb-6 dark:bg-gray-800">
         <button className="text-2xl text-accent font-bold"><Link to='/allclasses'>Our Classes</Link></button>
-        <h2 className="text-4xl font-semibold">
+        <h2 className="text-4xl font-semibold dark:text-white">
           Fitness Classes for Every Goal
         </h2>
       </div>
@@ -41,7 +41,7 @@ const Featured = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper"
+        className="mySwiper dark:bg-gray-800"
       >
         {classes.map((item) => (
           <SwiperSlide key={item.id}>

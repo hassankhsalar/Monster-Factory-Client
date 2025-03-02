@@ -14,7 +14,7 @@ const TrainerInfo = () => {
 
   return (
     <div>
-      <section className="py-6 dark:bg-gray-100 dark:text-gray-800">
+      <section className="py-6 bg-white dark:bg-gray-800 dark:text-gray-800">
         <div className="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
           
           <h1 className="text-4xl bg-accent text-white p-4 rounded-2xl font-bold leading-none text-center sm:text-5xl">
@@ -24,7 +24,7 @@ const TrainerInfo = () => {
             {trainers.map((trainer, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 dark:bg-gray-800 dark:text-gray-100"
+                className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-800 dark:bg-gray-500 text-gray-100 dark:text-gray-300"
               >
                 <img
                   alt={`${trainer.fullName}`}
