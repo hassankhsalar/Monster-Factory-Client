@@ -69,7 +69,7 @@ const ForumPost = () => {
           <div className="flex justify-center">
             <button
               type="button"
-              className="px-6 py-3 text-sm rounded-md hover:underline  bg-gray-50 dark:bg-gray-50 dark:text-gray-600"
+              className="px-6 py-3 text-sm rounded-md hover:scale-105  bg-gray-50 dark:bg-gray-50 dark:text-gray-600"
             >
               <Link to='/communityforums'>Load more posts...
               </Link>
