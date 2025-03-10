@@ -52,18 +52,18 @@ const AllClasses = () => {
   };
 
   return (
-    <section className="p-6 bg-gray-100">
+    <section className="p-6 bg-gray-100 dark:bg-slate-700">
       <Helmet>
         <title>MF || All Classes</title>
       </Helmet>
-      <h1 className="text-3xl font-bold text-center mb-6">All Classes</h1>
+      <h1 className="text-3xl font-bold text-center mb-6 dark:text-accent">All Classes</h1>
       <div className="mb-4 flex justify-center">
         <input
           type="text"
           placeholder="Search classes by name..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="px-4 py-2 border rounded-l-md focus:outline-none"
+          className="px-4 py-2 border rounded-l-md focus:outline-none dark:bg-slate-900"
         />
         <button
           onClick={handleSearch}
@@ -75,7 +75,7 @@ const AllClasses = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedClasses.length > 0 ? (
           displayedClasses.map((classItem) => (
-            <div key={classItem._id} className="bg-white p-4 rounded shadow">
+            <div key={classItem._id} className="bg-white dark:bg-slate-900 p-4 rounded shadow">
               <div>
                 <img
                   src={classItem.imageURL}
@@ -83,9 +83,9 @@ const AllClasses = () => {
                   className="w-full h-40 object-cover rounded"
                 />
               </div>
-              <h2 className="text-xl font-semibold mb-2">{classItem.title}</h2>
-              <p className="text-gray-700 mb-4">{classItem.description}</p>
-              <h3 className="font-semibold mb-2">Trainers:</h3>
+              <h2 className="text-xl font-semibold mb-2 dark:text-slate-400">{classItem.title}</h2>
+              <p className="text-gray-700 mb-4 dark:text-slate-500">{classItem.description}</p>
+              <h3 className="font-semibold mb-2 dark:text-slate-400">Trainers:</h3>
               <div className="flex items-center space-x-2">
                 {getMatchingTrainers(classItem.name).map((trainer) => (
                   <Link

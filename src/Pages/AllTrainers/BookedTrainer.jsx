@@ -111,11 +111,11 @@ const BookedTrainer = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 dark:bg-slate-700 min-h-screen">
       <Helmet>
         <title>MF || Booked Trainer</title>
       </Helmet>
-      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800 shadow-md rounded-lg p-6">
         <div className="flex flex-col items-center">
           { trainerPhoto ? <><img
             src={trainerPhoto}
@@ -126,41 +126,41 @@ const BookedTrainer = () => {
           alt={trainerName}
           className="w-40 h-40 object-cover rounded-full mb-4"
         /> </>}
-          <h1 className="text-2xl font-bold mb-2">{trainerName}</h1>
-          <p className="text-gray-700 mb-4">
+          <h1 className="text-2xl font-bold mb-2 text-accent">{trainerName}</h1>
+          <p className="text-gray-700 mb-4 dark:text-slate-400">
             <strong>Selected Time:</strong> {selectedTime}
           </p>
         </div>
 
         {/* Pricing Component Placeholder */}
         <div className="">
-          <section className="py-6 dark:bg-gray-100 dark:text-gray-800">
+          <section className="py-6 dark:bg-slate-700 rounded-2xl  bg-gray-100 dark:text-gray-800">
             <div className="container px-4 mx-auto">
               <div className="max-w-2xl mx-auto mb-16 text-center">
                 <span className="font-bold tracking-wider uppercase dark:text-violet-600">
                   Pricing
                 </span>
-                <h2 className="text-4xl font-bold lg:text-5xl">
+                <h2 className="text-4xl font-bold lg:text-5xl dark:text-slate-300">
                   Choose your best plan
                 </h2>
               </div>
               <div className="flex flex-wrap items-stretch -mx-4">
-                <div className="flex gap-6 justify-evenly w-full border-2 mb-8">
+                <div className="flex gap-6 justify-evenly w-full mb-8">
                   {plans.map((plan) => (
                     <div
                       key={plan.name}
-                      className="flex flex-grow flex-col  p-6 space-y-6 rounded shadow sm:p-8 dark:bg-gray-50"
+                      className="flex flex-grow flex-col  p-6 space-y-6 rounded shadow sm:p-8 dark:bg-slate-800 bg-gray-50"
                     >
                       <div className="space-y-2">
-                        <h4 className="text-2xl font-bold">{plan.name}</h4>
-                        <span className="text-6xl font-bold">
+                        <h4 className="text-2xl font-bold dark:text-slate-400">{plan.name}</h4>
+                        <span className="text-6xl font-bold dark:text-slate-400">
                           ${plan.price}
                         </span>
                       </div>
-                      <p className="mt-3 leading-relaxed dark:text-gray-600">
+                      <p className="mt-3 leading-relaxed dark:text-gray-400">
                         {plan.description}
                       </p>
-                      <ul className="flex-1 mb-6 dark:text-gray-600">
+                      <ul className="flex-1 mb-6 dark:text-gray-400">
                         <li className="flex mb-2 space-x-2">
                           <FaCheckCircle className="text-accent text-xl" />
                           <span>{plan.feature1}</span>
@@ -180,7 +180,7 @@ const BookedTrainer = () => {
                         className={`inline-block px-5 py-3 font-semibold tracking-wider text-center rounded ${
                           selectedPlan?.name === plan.name
                             ? "bg-violet-600 text-white"
-                            : "dark:bg-violet-600 dark:text-gray-50"
+                            : " bg-accent text-white dark:bg-violet-600 dark:text-gray-50"
                         }`}
                       >
                         {selectedPlan?.name === plan.name

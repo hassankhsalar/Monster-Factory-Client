@@ -92,13 +92,13 @@ const BeATrainer = () => {
   };
 
   return (
-    <section className="p-6 bg-gray-100 text-gray-800">
+    <section className="p-6 bg-gray-100 dark:bg-slate-700 text-gray-800">
       <Helmet>
         <title>MF || Become Trainer</title>
       </Helmet>
-      <h1 className="text-3xl font-bold text-center mb-6">Be A Trainer</h1>
+      <h1 className="text-3xl font-bold text-center mb-6 text-accent">Be A Trainer</h1>
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="fullName" className="block mb-2 font-semibold">
             Full Name
           </label>
@@ -114,7 +114,7 @@ const BeATrainer = () => {
           />
         </div>
         {user ? (
-          <div>
+          <div className="dark:text-slate-400">
             <label htmlFor="email" className="block mb-2 font-semibold">
               Email
             </label>
@@ -131,7 +131,7 @@ const BeATrainer = () => {
           <p>Loading user data...</p>
         )}
 
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="age" className="block mb-2 font-semibold">
             Age
           </label>
@@ -147,7 +147,7 @@ const BeATrainer = () => {
           />
         </div>
         {/* temporary image url function */}
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="fullName" className="block mb-2 font-semibold">
             Image URL
           </label>
@@ -180,7 +180,7 @@ const BeATrainer = () => {
         </div> */}
         {/* 999999999999999999999999999999999999 */}
 
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="experience" className="block mb-2 font-semibold">
             Experience
           </label>
@@ -195,7 +195,7 @@ const BeATrainer = () => {
             required
           />
         </div>
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="skills" className="block mb-2 font-semibold">
             Skills
           </label>
@@ -282,7 +282,7 @@ const BeATrainer = () => {
             </label>
           </div>
         </div>
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="availableDays" className="block mb-2 font-semibold">
             Available Days
           </label>
@@ -296,7 +296,7 @@ const BeATrainer = () => {
             placeholder="Select available days"
           />
         </div>
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="availableTime" className="block mb-2 font-semibold">
             Available Time
           </label>
@@ -309,7 +309,7 @@ const BeATrainer = () => {
             placeholder="Select a time slot"
           />
         </div>
-        <div>
+        <div className="dark:text-slate-400">
           <label htmlFor="biography" className="block mb-2 font-semibold">
             Biography
           </label>

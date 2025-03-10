@@ -3,6 +3,8 @@ import useCart from "../../hooks/useCart";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Marquee from "react-fast-marquee";
+import { FaBoltLightning } from "react-icons/fa6";
 
 const BookedTrainerCart = () => {
   const [cart, refetch] = useCart();
@@ -34,15 +36,20 @@ const BookedTrainerCart = () => {
     });
   };
   return (
-    <div>
+    <div className="w-full dark:bg-slate-700">
       <Helmet>
         <title>MF || Cart</title>
       </Helmet>
-      <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-50 dark:text-gray-800">
-        <h2 className="text-xl flex gap-2 font-semibold">
+      <Marquee className="bg-accent">
+        <div > 
+          <h1 className="flex items-center text-lg text-white h-8"> Enjoy 30% Off on all items this Ramadan <FaBoltLightning></FaBoltLightning></h1>
+        </div>
+      </Marquee>
+      <div className="flex flex-col max-w-3xl  p-6 space-y-4 sm:p-10 dark:text-gray-800">
+        <h2 className="text-xl flex gap-2 font-semibold dark:text-slate-400">
           Your cart{" "}
-          <p className="px-4 flex justify-center  items-center font-thin rounded dark:bg-accent dark:text-gray-100">
-            {cart.length} Items
+          <p className="px-4 flex justify-center  items-center font-thin rounded bg-accent text-white">
+            Items:<strong>{cart.length}</strong>
           </p>
         </h2>
         <ul className="flex flex-col divide-y dark:divide-gray-300">
@@ -60,18 +67,18 @@ const BookedTrainerCart = () => {
                 <div className="flex flex-col justify-between w-full pb-4">
                   <div className="flex justify-between w-full pb-2 space-x-2">
                     <div className="space-y-1">
-                      <h3 className="text-lg font-semibold leading-snug sm:pr-8">
+                      <h3 className="text-lg font-semibold leading-snug sm:pr-8 dark:text-gray-400">
                         {item.classTitle}
                       </h3>
-                      <p className="text-sm dark:text-gray-600">
+                      <p className="text-sm dark:text-gray-400">
                         {item.trainerName}
                       </p>
-                      <p className="text-sm dark:text-gray-600">
+                      <p className="text-sm dark:text-gray-400">
                         {item.selectedTime}
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-lg font-semibold">
+                      <p className="text-lg font-semibold dark:text-gray-400">
                         {item.packagePrice}$
                       </p>
                     </div>
@@ -80,7 +87,7 @@ const BookedTrainerCart = () => {
                     <button
                       onClick={() => handleDelete(item._id)}
                       type="button"
-                      className="flex items-center px-2 py-1 pl-0 space-x-1"
+                      className="flex items-center px-2 py-1 pl-0 space-x-1 dark:text-gray-400"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -95,9 +102,10 @@ const BookedTrainerCart = () => {
                       </svg>
                       <span>Remove</span>
                     </button>
-                    <button disabled
+                    <button
+                      disabled
                       type="button"
-                      className="flex items-center px-2 py-1 space-x-1"
+                      className="flex items-center px-2 py-1 space-x-1 dark:text-gray-400"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -114,21 +122,21 @@ const BookedTrainerCart = () => {
             </li>
           ))}
         </ul>
-        <div className="space-y-1 text-right">
+        <div className="space-y-1 text-right dark:text-gray-400">
           <p>
             Total amount:
             <span className="font-semibold"> {totalPrice}$</span>
           </p>
-          <p className="text-sm dark:text-gray-600">Not including taxes</p>
+          <p className="text-sm">Not including taxes</p>
         </div>
         <div className="flex justify-end space-x-4">
           <Link to="/allclasses">
             <button
               type="button"
-              className="px-6 py-2 border rounded-md dark:border-violet-600"
+              className="px-6 py-2 border dark:text-accent rounded-md border-violet-600"
             >
               Back
-              <span className="sr-only sm:not-sr-only">to Classes</span>
+              <span className="sr-only sm:not-sr-only dark:text-gray-300"> to Classes</span>
             </button>
           </Link>
           {cart.length ? (
@@ -136,17 +144,17 @@ const BookedTrainerCart = () => {
               <button
                 disabled={!cart.length}
                 type="button"
-                className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600"
+                className="px-6 py-2 border rounded-md bg-violet-600 text-gray-50 border-violet-600"
               >
-                <span className="sr-only sm:not-sr-only">Continue to</span>
-                Checkout
+                <span className="sr-only sm:not-sr-only">Continue to </span>
+                 Checkout
               </button>
             </Link>
           ) : (
             <button
               disabled
               type="button"
-              className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-50 dark:border-violet-600"
+              className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-50 border-violet-600"
             >
               <span className="sr-only sm:not-sr-only">Empty</span>
               Cart
