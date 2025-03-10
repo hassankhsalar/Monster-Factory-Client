@@ -17,7 +17,7 @@ const AllTrainers = () => {
             <h3 className="text-2xl font-bold leading-none sm:text-5xl">
               Meet our Trainers
             </h3>
-            <p className="max-w-2xl dark:text-gray-600">
+            <p className="max-w-2xl dark:text-gray-300">
               The Arts and craftsmen of Monster Factory
             </p>
           </div>
@@ -32,7 +32,7 @@ const AllTrainers = () => {
                   className="object-cover w-full h-56 rounded-t-lg"
                   src={trainer.imageURL}
                 />
-                <div className="flex flex-col justify-between items-center text-center p-4 h-60 bg-gray-500 text-white rounded-b-lg">
+                <div className="flex flex-col justify-between items-center text-center p-4 w-full h-60 bg-gray-500 text-white rounded-b-lg">
                   <h4 className="text-xl font-semibold">{trainer.fullName}</h4>
                   <p className="text-sm dark:text-gray-300">
                     {trainer.skills.join(" - ")}

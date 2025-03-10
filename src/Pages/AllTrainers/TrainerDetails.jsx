@@ -63,7 +63,7 @@ const TrainerDetails = () => {
   const availableTimes = ["10:00am-11:59am", "2:00pm-4:00pm", "8:00pm-10:00pm"];
 
   return (
-    <section className="p-6 bg-gray-100">
+    <section className="p-6 bg-gray-100 dark:bg-slate-700">
       <Helmet>
         <title>MF || {trainer.fullName} </title>
       </Helmet>
