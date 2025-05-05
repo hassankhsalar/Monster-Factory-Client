@@ -45,7 +45,7 @@ const Featured = () => {
       >
         {classes.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="w-full h-72 xl:h-96 relative">
+            <div className="w-full h-72 xl:h-96 relative hover:scale-105 transition-transform">
               <img
                 src={item.image}
                 alt={item.categoryName}

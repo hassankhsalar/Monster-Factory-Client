@@ -24,7 +24,7 @@ const ForumPost = () => {
             <a
               rel="noopener noreferrer"
               href="/communityforums"
-              className="block max-w-sm gap-3 mx-auto sm:max-w-full rounded-2xl group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12  bg-gray-50 dark:bg-gray-50"
+              className="block max-w-sm gap-3 mx-auto sm:max-w-full rounded-2xl group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12  bg-gray-50 dark:bg-gray-50 hover:scale-105 transition-transform"
             >
               <img
                 src={forumPosts[0].imageURL}
@@ -48,7 +48,7 @@ const ForumPost = () => {
                 key={post._id}
                 rel="noopener noreferrer"
                 href="/communityforums"
-                className="max-w-sm rounded-2xl mx-auto group hover:no-underline focus:no-underline bg-gray-50 dark:bg-gray-50 "
+                className="max-w-sm rounded-2xl mx-auto group hover:no-underline focus:no-underline bg-gray-50 dark:bg-gray-50 hover:scale-105 transition-transform"
               >
                 <img
                   role="presentation"

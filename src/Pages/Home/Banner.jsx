@@ -19,10 +19,10 @@ const Banner = () => {
         Achieve Your Fitness Goals with Personalized Workouts, Nutrition Plans, and Expert Guidance.!
         </p>
         <div className="flex flex-wrap justify-center">
-          <button className="px-8 py-3 m-2 text-lg font-semibold rounded bg-violet-600 dark:bg-violet-600 text-white dark:text-slate-900">
+          <button className="px-8 py-3 m-2 text-lg font-semibold rounded bg-violet-600 dark:bg-violet-600 text-white dark:text-slate-900 hover:scale-105 transition-transform">
             <Link to='/allclasses'>Get started</Link>
           </button>
-          <button onClick={() => scrollToSection("aboutus")} className="px-8 py-3 m-2 text-lg border rounded text-white dark:text-gray-900 dark:border-gray-300">
+          <button onClick={() => scrollToSection("aboutus")} className="px-8 py-3 m-2 text-lg border rounded text-white dark:text-gray-900 dark:border-gray-300 hover:scale-105 transition-transform">
             Learn more
           </button>
         </div>

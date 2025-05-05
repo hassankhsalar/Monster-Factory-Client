@@ -70,12 +70,12 @@ const Newsletter = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="example@email.com"
-              className="w-3/5 p-3 rounded-l-lg sm:w-2/3"
+              className="w-3/5 p-3 rounded-l-lg sm:w-2/3 hover:scale-105 transition-transform"
             />
             <button
               onClick={handleSubscribe}
               type="button"
-              className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 bg-violet-600 dark:bg-violet-600 dark:text-gray-50"
+              className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 bg-violet-600 dark:bg-violet-600 dark:text-gray-50 hover:scale-105 transition-transform"
             >
               Subscribe
             </button>

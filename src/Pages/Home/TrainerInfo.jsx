@@ -24,7 +24,7 @@ const TrainerInfo = () => {
             {trainers.map((trainer, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-800 dark:bg-gray-500 text-gray-100 dark:text-gray-300"
+                className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 bg-gray-800 dark:bg-gray-500 text-gray-100 dark:text-gray-300 hover:scale-105 transition-transform"
               >
                 <img
                   alt={`${trainer.fullName}`}

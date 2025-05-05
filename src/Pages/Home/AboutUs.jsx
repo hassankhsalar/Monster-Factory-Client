@@ -14,7 +14,7 @@ const AboutUs = () => {
         <div className="w-1/2 flex flex-col gap-5 justify-evenly">
           
           <h2 className="text-4xl font-bold text-accent">Welcome To Monster Factory</h2>
-          <p>
+          <p className="hover:scale-110 transition-transform">
             Transform your fitness journey with our dynamic platform! Discover
             expert-led classes, personalized workout plans, and community
             support, all designed to help you achieve your health and wellness
@@ -23,7 +23,7 @@ const AboutUs = () => {
           </p>
           <button
             type="button"
-            className="px-8 py-3 text-center w-44 font-semibold rounded-full dark:bg-gray-800 dark:text-gray-100"
+            className="px-8 py-3 m-2 text-lg font-semibold rounded bg-violet-600 dark:bg-violet-600 text-white dark:text-slate-900 hover:scale-105 transition-transform"
           >
             <Link to='/aboutus'>Explore More</Link>
           </button>

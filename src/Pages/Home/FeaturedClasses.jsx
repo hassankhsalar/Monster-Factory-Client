@@ -30,7 +30,7 @@ const FeaturedClasses = () => {
         {classes.map((cls) => (
           <div
             key={cls._id}
-            className="p-4 flex flex-col justify-between rounded-lg shadow-md bg-secondary dark:bg-secondary"
+            className="p-4 flex flex-col justify-between rounded-lg shadow-md bg-secondary dark:bg-secondary transition-transform duration-300 hover:-translate-y-3"
           >
             <h3 className="text-2xl text-white font-bold mb-2">{cls.title}</h3>
             <p className="text-gray-800 dark:text-gray-300 mb-4">

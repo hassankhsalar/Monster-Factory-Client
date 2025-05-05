@@ -55,7 +55,7 @@ const Navbar = () => {
         <ul className="items-stretch hidden space-x-3 lg:flex">
           <li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 border-b-2  text-violet-600 border-violet-600  dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 border-b-2  text-violet-600 border-violet-600 dark:text-violet-600 dark:border-violet-600 hover:scale-105 transition-transform"
               to="/"
             >
               Home
@@ -63,7 +63,7 @@ const Navbar = () => {
           </li>
           <li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600  border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600  border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600 hover:scale-105 transition-transform"
               to="/alltrainers"
             >
               All Trainers
@@ -72,7 +72,7 @@ const Navbar = () => {
           {
             user? <><li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600 hover:scale-105 transition-transform"
               to="/allclasses"
             >
               All Classes
@@ -81,7 +81,7 @@ const Navbar = () => {
           }
           <li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600 hover:scale-105 transition-transform"
               to="/communityforums"
             >
               Community Forums
@@ -90,7 +90,7 @@ const Navbar = () => {
           {
             user? <><li className="flex">
             <Link
-              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:border- dark:text-violet-600 dark:border-violet-600"
+              className="flex items-center px-4 -mb-1 text-violet-600 border-violet-600 border-b-2 dark:text-violet-600 dark:border-violet-600 hover:scale-105 transition-transform"
               to="/dashboard/profile"
             >
               Dashboard
@@ -110,7 +110,7 @@ const Navbar = () => {
                   localStorage.setItem("theme", "dark");
                 }
               }}
-              className="px-4 flex py-2 mt-4 bg-primary text-white rounded"
+              className="px-4 flex py-2 mt-4 bg-primary text-white rounded  hover:scale-110 transition-transform"
             >
               <FaCircleHalfStroke className="text-2xl"></FaCircleHalfStroke>
             </button>
@@ -130,13 +130,13 @@ const Navbar = () => {
                   <button
                     onClick={handleLogout}
                     type="button"
-                    className="px-8 py-3 font-semibold rounded bg-violet-400 dark:bg-violet-400 dark:text-gray-100"
+                    className="px-8 py-3 font-semibold rounded bg-violet-400 dark:bg-violet-400 dark:text-gray-100 hover:scale-105 transition-transform"
                   >
                     Logout
                   </button>
                   <Link
                     to="/dashboard/bookedtrainercart"
-                    className="relative inline-flex items-center justify-center px-4 py-3 text-lg text-white rounded bg-primary"
+                    className="relative inline-flex items-center justify-center px-4 py-3 text-lg text-white rounded bg-primary hover:scale-105 transition-transform"
                   >
                     <FaCartShopping></FaCartShopping>
                     <span className="absolute -top-2.5 -right-2.5 inline-flex items-center justify-center gap-1 rounded-full border-2 border-white bg-pink-500 px-1.5 text-sm text-white">
@@ -152,7 +152,7 @@ const Navbar = () => {
               {" "}
               <li>
                 <Link
-                  className="px-8 mr-4 py-3 font-semibold rounded bg-slate-400 dark:bg-slate-400 dark:text-black"
+                  className="px-8 mr-4 py-3 font-semibold rounded bg-slate-400 dark:bg-slate-400 dark:text-black hover:scale-105 transition-transform"
                   to="/login"
                 >
                   Login
@@ -160,7 +160,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  className="self-center px-8 py-3 font-semibold rounded bg-violet-600 dark:bg-violet-600 dark:text-gray-50"
+                  className="self-center px-8 py-3 font-semibold rounded bg-violet-600 dark:bg-violet-600 dark:text-gray-50  hover:scale-105 transition-transform"
                   to="/register"
                 >
                   Register
