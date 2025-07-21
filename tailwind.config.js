@@ -7,8 +7,19 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        customBounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      animation: {
+        'bounce-slow': 'customBounce 1s ease-in-out infinite',
+        'bounce-fast': 'customBounce 0.3s ease-in-out infinite',
+        'bounce-once': 'customBounce 0.4s ease-in-out 1',
+      },
       fontFamily: {
-        sans: ['Catamaran', 'serif'], // Add Roboto as the default sans font
+        sans: ['Catamaran', 'serif'],
       },
       colors: {
         'text': '#03191c',
